@@ -1,10 +1,10 @@
-*/Library/
-*/Temp/
-*/Obj/
-*/.vs/
-*/.idea/
-*/_ReSharper.*/
-*/StreamingAssets/
+**/Library/
+**/Temp/
+**/Obj/
+**/.vs/
+**/.idea/
+**/_ReSharper.*/
+**/StreamingAssets/
 
 .DS_Store
 *.csproj
