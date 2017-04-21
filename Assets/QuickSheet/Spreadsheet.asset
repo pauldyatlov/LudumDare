@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54cfb968402e304b9684d91335a5d3e, type: 3}
+  m_Name: Spreadsheet
+  m_EditorClassIdentifier: 
+  SheetName: LudumDareSpreadsheet
+  WorksheetName: Item
+  dataArray:
+  - keys: ID_ITEM01
+    values: 22.3
+  - keys: ID_ITEM02
+    values: 55.5
+  - keys: burunduk
+    values: 2
+  - keys: gavno
+    values: 0
