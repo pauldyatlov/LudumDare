@@ -15,7 +15,7 @@ MonoBehaviour:
   scriptFilePath: Data/Runtime
   editorScriptFilePath: Data/Editor
   sheetName: LudumDareSpreadsheet
-  workSheetName: Item
+  workSheetName: Spreadsheet
   columnHeaderList:
   - type: 1
     name: KEYS

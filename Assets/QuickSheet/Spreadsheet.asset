@@ -8,11 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e54cfb968402e304b9684d91335a5d3e, type: 3}
-  m_Name: Spreadsheet
+  m_Script: {fileID: 11500000, guid: 2753d32dcdebb4a4cab188b5ec197d0a, type: 3}
+  m_Name: SpreadSheet
   m_EditorClassIdentifier: 
   SheetName: LudumDareSpreadsheet
-  WorksheetName: Item
+  WorksheetName: Spreadsheet
   dataArray:
   - keys: ID_ITEM01
     values: 22.3
@@ -21,4 +21,4 @@ MonoBehaviour:
   - keys: burunduk
     values: 2
   - keys: gavno
-    values: 0
+    values: 5
