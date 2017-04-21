@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private Item _itemData;
+    [SerializeField] private Spreadsheet _spreadsheet;
 
     private void Awake()
     {
-        foreach (var item in _itemData.dataArray)
+        foreach (var item in _spreadsheet.dataArray)
         {
             Debug.Log("item: " + item.KEYS + " value: " + item.VALUES);
         }
