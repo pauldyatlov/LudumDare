@@ -14,11 +14,7 @@ MonoBehaviour:
   SheetName: LudumDareSpreadsheet
   WorksheetName: Spreadsheet
   dataArray:
-  - keys: ID_ITEM01
-    values: 22.3
-  - keys: ID_ITEM02
-    values: 55.5
-  - keys: burunduk
-    values: 2
-  - keys: gavno
-    values: 5
+  - key: DamageAsteroid
+    prefab: 0
+    amount: 20
+    speed: 2

@@ -9,11 +9,19 @@ using System.Collections;
 public class SpreadsheetData
 {
   [SerializeField]
-  string keys;
-  public string KEYS { get {return keys; } set { keys = value;} }
+  string key;
+  public string KEY { get {return key; } set { key = value;} }
   
   [SerializeField]
-  float values;
-  public float VALUES { get {return values; } set { values = value;} }
+  int prefab;
+  public int PREFAB { get {return prefab; } set { prefab = value;} }
+  
+  [SerializeField]
+  float amount;
+  public float AMOUNT { get {return amount; } set { amount = value;} }
+  
+  [SerializeField]
+  float speed;
+  public float SPEED { get {return speed; } set { speed = value;} }
   
 }

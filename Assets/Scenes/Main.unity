@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _asteroidPresets:
-  - {fileID: 11400000, guid: 619a944753dd8ea4da704e997bd5a462, type: 2}
+  - DamageAsteroid
   _asteroidMinSpawnDelay: 1
   _asteroidMaxSpawnDelay: 5
 --- !u!114 &1860641328
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c81da19c0f2353458c954d1b746b924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemData: {fileID: 11400000, guid: 2f56c70b413051043bb413fcc9a6cc39, type: 2}
+  _spreadsheet: {fileID: 11400000, guid: 2f56c70b413051043bb413fcc9a6cc39, type: 2}
   _camera: {fileID: 2072452892}
   _asteroidsController: {fileID: 1860641327}
 --- !u!4 &1860641329

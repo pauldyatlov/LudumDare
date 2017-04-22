@@ -18,11 +18,19 @@ MonoBehaviour:
   workSheetName: Spreadsheet
   columnHeaderList:
   - type: 1
-    name: KEYS
+    name: KEY
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: PREFAB
     isEnable: 0
     isArray: 0
   - type: 5
-    name: VALUES
+    name: AMOUNT
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: SPEED
     isEnable: 0
     isArray: 0
   AccessCode: 

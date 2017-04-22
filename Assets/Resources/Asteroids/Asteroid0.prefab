@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23951565422607956}
   - component: {fileID: 114539408862089220}
   m_Layer: 0
-  m_Name: Asteroid
+  m_Name: Asteroid0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

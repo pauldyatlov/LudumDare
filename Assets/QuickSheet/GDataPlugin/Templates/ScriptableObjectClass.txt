@@ -38,8 +38,8 @@ public class $ClassName : ScriptableObject
     //
     // Write a proper query methods for retrieving data.
     //
-    //public $DataClassName FindByKey(string key)
-    //{
-    //    return Array.Find(dataArray, d => d.Key == key);
-    //}
+    public $DataClassName FindByKey(string key)
+    {
+        return Array.Find(dataArray, d => d.KEY == key);
+    }
 }

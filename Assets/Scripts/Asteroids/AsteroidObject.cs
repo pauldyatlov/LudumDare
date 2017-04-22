@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AsteroidObject : MonoBehaviour
 {
-    private AsteroidParameter _parameter;
-
     private const float MinXRotationSpeed = 0;
     private const float MaxXRotationSpeed = 50;
 
@@ -17,9 +15,13 @@ public class AsteroidObject : MonoBehaviour
 
     private Vector3 _rotationVector;
 
-    public void Show(AsteroidParameter parameter)
+    private float _amount;
+    private float _speed;
+
+    public void Show(float amount, float speed)
     {
-        _parameter = parameter;
+        _amount = amount;
+        _speed = speed;
 
         _rotationVector = new Vector3(UnityEngine.Random.Range(MinXRotationSpeed, MaxXRotationSpeed),
                                       UnityEngine.Random.Range(MinYRotationSpeed, MaxYRotationSpeed),
@@ -28,7 +30,7 @@ public class AsteroidObject : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, Vector3.zero, Time.deltaTime * _parameter.Speed);
+        transform.position = Vector3.MoveTowards(transform.position, Vector3.zero, Time.deltaTime * _speed);
         transform.Rotate(_rotationVector * Time.deltaTime);
     }
 }

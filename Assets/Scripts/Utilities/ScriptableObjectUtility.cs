@@ -34,9 +34,8 @@ public static class ScriptableObjectUtility
 
 public class CreateAsteroidAsset
 {
-    [MenuItem("Assets/Create/Asteroid")]
     public static void CreateAsset()
     {
-        ScriptableObjectUtility.CreateAsset<AsteroidParameter>();
+        //ScriptableObjectUtility.CreateAsset<AsteroidParameter>();
     }
 }

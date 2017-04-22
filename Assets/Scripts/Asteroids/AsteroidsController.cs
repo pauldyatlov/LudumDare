@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AsteroidsController : MonoBehaviour
 {
-    [SerializeField] private List<AsteroidParameter> _asteroidPresets;
+    [SerializeField] private List<string> _asteroidPresets;
 
     [Range(0.0f, 99.0f)]  [SerializeField] private float _asteroidMinSpawnDelay;
     [Range(1.0f, 100.0f)] [SerializeField] private float _asteroidMaxSpawnDelay;
 
     private DateTime _lastUpdate;
     
-    private List<AsteroidObject> _asteroids = new List<AsteroidObject>();
+    private readonly List<AsteroidObject> _asteroids = new List<AsteroidObject>();
 
     private Camera _camera;
+    private Spreadsheet _spreadsheet;
+
     private float _delay;
 
-    public void Init(Camera cam)
+    public void Init(Camera cam, Spreadsheet spreadsheet)
     {
         _camera = cam;
+        _spreadsheet = spreadsheet;
     }
 
     private void Update()
@@ -40,14 +44,16 @@ public class AsteroidsController : MonoBehaviour
     {
         var index = UnityEngine.Random.Range(0, _asteroidPresets.Count);
 
-        var preset = _asteroidPresets[index];
+        var preset = _spreadsheet.FindByKey(_asteroidPresets[index]);
 
         var pos = new Vector3(UnityEngine.Random.Range(-20, 20), 
                               UnityEngine.Random.Range(-20, 20), 
                               UnityEngine.Random.Range(_camera.transform.position.z - 30, _camera.transform.position.z - 20));
 
-        var asteroid = Instantiate(preset.Template, pos, Quaternion.identity, transform);
-        asteroid.Show(preset);
+        var prefab = Resources.Load<AsteroidObject>("Asteroids/Asteroid" + preset.PREFAB);
+
+        var asteroid = Instantiate(prefab, pos, Quaternion.identity, transform);
+        asteroid.Show(preset.AMOUNT, preset.SPEED);
 
         _asteroids.Add(asteroid);
     }

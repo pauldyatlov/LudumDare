@@ -38,8 +38,8 @@ public class Spreadsheet : ScriptableObject
     //
     // Write a proper query methods for retrieving data.
     //
-    //public SpreadsheetData FindByKey(string key)
-    //{
-    //    return Array.Find(dataArray, d => d.Key == key);
-    //}
+    public SpreadsheetData FindByKey(string key)
+    {
+        return Array.Find(dataArray, d => d.KEY == key);
+    }
 }
