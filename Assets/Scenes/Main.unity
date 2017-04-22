@@ -752,6 +752,9 @@ GameObject:
   - component: {fileID: 1860641327}
   - component: {fileID: 1860641331}
   - component: {fileID: 1860641330}
+  - component: {fileID: 1860641334}
+  - component: {fileID: 1860641333}
+  - component: {fileID: 1860641332}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -790,9 +793,9 @@ MonoBehaviour:
   _spreadsheet: {fileID: 11400000, guid: 3529d061ce12e0e4485d4886e41d9ce1, type: 2}
   _camera: {fileID: 2072452892}
   _asteroidsController: {fileID: 1860641327}
-  _astronaut: {fileID: 132252922}
-  _populationController: {fileID: 1860641331}
-  _uiController: {fileID: 1860641330}
+  _astronaut: {fileID: 0}
+  _populationController: {fileID: 0}
+  _uiController: {fileID: 0}
 --- !u!4 &1860641329
 Transform:
   m_ObjectHideFlags: 0
@@ -828,6 +831,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46199f3b287620e46b865d0a21010f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1860641332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860641326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d3f8815ce09c14fa812705519fbf7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1860641333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860641326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265bbf6f802e224499ccc543464ac9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spreadsheet: {fileID: 11400000, guid: 6dd2eb99ec302594cb8a1718007b706c, type: 2}
+--- !u!114 &1860641334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860641326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b712601aab13654ab8eeff7016c4fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1891190591
