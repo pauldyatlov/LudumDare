@@ -6,7 +6,7 @@ using System.Collections;
 /// !!! DO NOT CHANGE Tabs to Spaces !!!
 ///
 [System.Serializable]
-public class SpreadsheetData
+public class AsteroidsData
 {
   [SerializeField]
   string key;

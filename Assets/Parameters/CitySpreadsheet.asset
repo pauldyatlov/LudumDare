@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294b8eb7653df274384443873b3b8740, type: 3}
+  m_Name: CitySpreadsheet
+  m_EditorClassIdentifier: 
+  SheetName: LudumDareSpreadsheet
+  WorksheetName: Cities
+  dataArray:
+  - key: CityOne
+    population: 50
+    speed: 5.5
+  - key: CityTwo
+    population: 100
+    speed: 10

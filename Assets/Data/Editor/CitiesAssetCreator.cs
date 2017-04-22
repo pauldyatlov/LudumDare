@@ -8,12 +8,12 @@ using UnityQuickSheet;
 /// 
 public partial class GoogleDataAssetUtility
 {
-    [MenuItem("Assets/Create/Google/Spreadsheet")]
-    public static void CreateSpreadsheetAssetFile()
+    [MenuItem("Assets/Create/Google/Cities")]
+    public static void CreateCitiesAssetFile()
     {
-        Spreadsheet asset = CustomAssetUtility.CreateAsset<Spreadsheet>();
+        Cities asset = CustomAssetUtility.CreateAsset<Cities>();
         asset.SheetName = "LudumDareSpreadsheet";
-        asset.WorksheetName = "Spreadsheet";
+        asset.WorksheetName = "Cities";
         EditorUtility.SetDirty(asset);        
     }
     

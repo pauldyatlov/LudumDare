@@ -12,26 +12,26 @@ using UnityQuickSheet;
 ///
 /// !!! Machine generated code !!!
 ///
-[CustomEditor(typeof(Spreadsheet))]
-public class SpreadsheetEditor : BaseGoogleEditor<Spreadsheet>
+[CustomEditor(typeof(Asteroids))]
+public class AsteroidsEditor : BaseGoogleEditor<Asteroids>
 {	    
     public override bool Load()
     {        
-        Spreadsheet targetData = target as Spreadsheet;
+        Asteroids targetData = target as Asteroids;
         
         var client = new DatabaseClient("", "");
         string error = string.Empty;
         var db = client.GetDatabase(targetData.SheetName, ref error);	
-        var table = db.GetTable<SpreadsheetData>(targetData.WorksheetName) ?? db.CreateTable<SpreadsheetData>(targetData.WorksheetName);
+        var table = db.GetTable<AsteroidsData>(targetData.WorksheetName) ?? db.CreateTable<AsteroidsData>(targetData.WorksheetName);
         
-        List<SpreadsheetData> myDataList = new List<SpreadsheetData>();
+        List<AsteroidsData> myDataList = new List<AsteroidsData>();
         
         var all = table.FindAll();
         foreach(var elem in all)
         {
-            SpreadsheetData data = new SpreadsheetData();
+            AsteroidsData data = new AsteroidsData();
             
-            data = Cloner.DeepCopy<SpreadsheetData>(elem.Element);
+            data = Cloner.DeepCopy<AsteroidsData>(elem.Element);
             myDataList.Add(data);
         }
                 

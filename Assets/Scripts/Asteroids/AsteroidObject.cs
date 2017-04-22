@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AsteroidObject : MonoBehaviour
 {
@@ -32,5 +30,15 @@ public class AsteroidObject : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, Vector3.zero, Time.deltaTime * _speed);
         transform.Rotate(_rotationVector * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, Vector3.zero) < Mathf.Epsilon)
+        {
+            DestroyAsteroid();
+        }
+    }
+
+    private void DestroyAsteroid()
+    {
+        Destroy(gameObject);
     }
 }

@@ -15,11 +15,11 @@ public class AsteroidsController : MonoBehaviour
     private readonly List<AsteroidObject> _asteroids = new List<AsteroidObject>();
 
     private Camera _camera;
-    private Spreadsheet _spreadsheet;
+    private Asteroids _spreadsheet;
 
     private float _delay;
 
-    public void Init(Camera cam, Spreadsheet spreadsheet)
+    public void Init(Camera cam, Asteroids spreadsheet)
     {
         _camera = cam;
         _spreadsheet = spreadsheet;
