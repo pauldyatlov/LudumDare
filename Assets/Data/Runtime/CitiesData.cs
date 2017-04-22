@@ -13,6 +13,10 @@ public class CitiesData
   public string KEY { get {return key; } set { key = value;} }
   
   [SerializeField]
+  int index;
+  public int INDEX { get {return index; } set { index = value;} }
+  
+  [SerializeField]
   string name;
   public string NAME { get {return name; } set { name = value;} }
   

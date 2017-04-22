@@ -21,6 +21,10 @@ MonoBehaviour:
     name: KEY
     isEnable: 0
     isArray: 0
+  - type: 3
+    name: INDEX
+    isEnable: 0
+    isArray: 0
   - type: 1
     name: NAME
     isEnable: 0

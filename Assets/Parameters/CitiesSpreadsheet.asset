@@ -15,10 +15,12 @@ MonoBehaviour:
   WorksheetName: Cities
   dataArray:
   - key: CityOne
+    index: 0
     name: Method Man
     startpopulation: 10
     growthspeed: 0.1
   - key: CityTwo
+    index: 1
     name: Havoc
     startpopulation: 7
     growthspeed: 0.3
