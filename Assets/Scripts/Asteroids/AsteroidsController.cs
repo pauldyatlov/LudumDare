@@ -35,8 +35,7 @@ public class AsteroidsController : MonoBehaviour
 
         _delay = UnityEngine.Random.Range(_asteroidMinSpawnDelay, _asteroidMaxSpawnDelay);
         _lastUpdate = DateTime.UtcNow;
-
-        Debug.Log("Spawn. Delay: " + _delay);
+        
         CreateAsteroid();
     }
 

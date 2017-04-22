@@ -13,11 +13,15 @@ public class CitiesData
   public string KEY { get {return key; } set { key = value;} }
   
   [SerializeField]
-  int population;
-  public int POPULATION { get {return population; } set { population = value;} }
+  string name;
+  public string NAME { get {return name; } set { name = value;} }
   
   [SerializeField]
-  float speed;
-  public float SPEED { get {return speed; } set { speed = value;} }
+  int startpopulation;
+  public int STARTPOPULATION { get {return startpopulation; } set { startpopulation = value;} }
+  
+  [SerializeField]
+  float growthspeed;
+  public float GROWTHSPEED { get {return growthspeed; } set { growthspeed = value;} }
   
 }

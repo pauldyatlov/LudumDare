@@ -14,7 +14,23 @@ MonoBehaviour:
   templatePath: QuickSheet/GDataPlugin/Templates
   scriptFilePath: Data/Runtime
   editorScriptFilePath: Data/Editor
-  sheetName: 
-  workSheetName: 
-  columnHeaderList: []
+  sheetName: LudumDareSpreadsheet
+  workSheetName: Cities
+  columnHeaderList:
+  - type: 1
+    name: KEY
+    isEnable: 0
+    isArray: 0
+  - type: 1
+    name: NAME
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: STARTPOPULATION
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: GROWTHSPEED
+    isEnable: 0
+    isArray: 0
   AccessCode: 

@@ -9,14 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 294b8eb7653df274384443873b3b8740, type: 3}
-  m_Name: CitySpreadsheet
+  m_Name: CitiesSpreadsheet
   m_EditorClassIdentifier: 
   SheetName: LudumDareSpreadsheet
   WorksheetName: Cities
   dataArray:
   - key: CityOne
-    population: 50
-    speed: 5.5
+    name: Method Man
+    startpopulation: 10
+    growthspeed: 0.1
   - key: CityTwo
-    population: 100
-    speed: 10
+    name: Havoc
+    startpopulation: 7
+    growthspeed: 0.3
