@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private AsteroidsController _asteroidsController;
 
-    [SerializeField] private CharacterHealth _characterHealth;
+    [SerializeField] private Astronaut _astronaut;
     [SerializeField] private PopulationController _populationController;
 
     [SerializeField] private UIController _uiController;
@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     {
         _asteroidsController.Init(_camera, _spreadsheet);
 
-        _characterHealth.Init(DamageDealtHandler);
+        _astronaut.Init(DamageDealtHandler);
         _populationController.Init();
 
         _uiController.Init();

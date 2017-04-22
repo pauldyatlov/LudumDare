@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 88ec9a13802800449aaf825aff3aadc7, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.16487625, g: 0.10864479, b: 0.22398311, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -173,7 +173,169 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &369381268
+--- !u!1 &132252919 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+  m_PrefabInternal: {fileID: 1961967084}
+--- !u!114 &132252920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132252919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d40c51078f4f646ae8f7c76f0f3cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  _astronaut: {fileID: 132252922}
+--- !u!114 &132252921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132252919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ff8b7342ecc6941bfdd2b61c371248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+--- !u!114 &132252922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132252919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d999f5258f4dd6445b99680f6933e1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnAreas:
+  - {fileID: 1120270985}
+  - {fileID: 1042898710}
+  - {fileID: 1177384615}
+  - {fileID: 1505345947}
+  - {fileID: 1661203067}
+  - {fileID: 1959888300}
+  - {fileID: 154326845}
+  - {fileID: 1891190592}
+  HousePrefab: {fileID: 114720332722506276, guid: 132f8b516b28d7b4c814fa7b7beaf82b,
+    type: 2}
+  CurrentRotationSpeed: {x: 0, y: 0, z: 0}
+--- !u!64 &132252923
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132252919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+--- !u!4 &132252926 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+  m_PrefabInternal: {fileID: 1961967084}
+--- !u!1 &154326844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 154326846}
+  - component: {fileID: 154326845}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &154326845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154326844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.1
+  _houses: []
+  Normal: {x: 0, y: -0.20378265, z: -0.9790162}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &154326846
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154326844}
+  m_LocalRotation: {x: -0, y: 0.99474025, z: -0.10243018, w: 0}
+  m_LocalPosition: {x: -0.051836193, y: 0.54935735, z: -0.25067005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1042898709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1042898711}
+  - component: {fileID: 1042898710}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1042898710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042898709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.1
+  _houses: []
+  Normal: {x: -0.5834508, y: 0.81206053, z: -0.011952691}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &1042898711
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042898709}
+  m_LocalRotation: {x: -0.3193344, y: -0.63561153, z: -0.3259432, w: 0.62272364}
+  m_LocalPosition: {x: -0.39629173, y: 0.47522593, z: -0.037487585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1059685127
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -273,17 +435,249 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 736430bccf7c4bd46a09ef8ada7121eb, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &560482916 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114509747294304164, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 369381268}
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!224 &602351645 stripped
+--- !u!224 &1059685128 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224195645877823158, guid: 736430bccf7c4bd46a09ef8ada7121eb,
     type: 2}
-  m_PrefabInternal: {fileID: 369381268}
+  m_PrefabInternal: {fileID: 1059685127}
+--- !u!114 &1059685129 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114177208940905456, guid: 736430bccf7c4bd46a09ef8ada7121eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1059685127}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1059685130 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114509747294304164, guid: 736430bccf7c4bd46a09ef8ada7121eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1059685127}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &1120270984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1120270986}
+  - component: {fileID: 1120270985}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1120270985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120270984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.1
+  _houses: []
+  Normal: {x: -0.4453306, y: 0.09108516, z: -0.89072114}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &1120270986
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120270984}
+  m_LocalRotation: {x: 0.010473852, y: 0.97224015, z: 0.044370465, w: -0.22950092}
+  m_LocalPosition: {x: -0.20432688, y: -0.122483864, z: -0.09968517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1177384614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1177384616}
+  - component: {fileID: 1177384615}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1177384615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1177384614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.1
+  _houses: []
+  Normal: {x: -0.18377496, y: 0.008758463, z: 0.98292935}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &1177384616
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1177384614}
+  m_LocalRotation: {x: -0.0043606665, y: -0.092283934, z: -0.00040413294, w: 0.9957231}
+  m_LocalPosition: {x: -0.0051081055, y: 0.5206976, z: 0.081761755}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1500244601
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464922327205060, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1f7803ede6e0c9c449a0eeca451d3eb5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1505345946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1505345948}
+  - component: {fileID: 1505345947}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1505345947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505345946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.1
+  _houses: []
+  Normal: {x: -0.11592676, y: 0.08788354, z: 0.9893621}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &1505345948
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505345946}
+  m_LocalRotation: {x: -0.043909643, y: -0.058231216, z: -0.002563738, w: 0.9973337}
+  m_LocalPosition: {x: -0.0028762564, y: 0.065109506, z: 0.090318196}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1661203066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1661203068}
+  - component: {fileID: 1661203067}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1661203067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661203066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.1
+  _houses: []
+  Normal: {x: -0.04792289, y: -0.09835738, z: 0.99399656}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &1661203068
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661203066}
+  m_LocalRotation: {x: 0.04922405, y: -0.02405597, z: 0.0011859182, w: 0.99849737}
+  m_LocalPosition: {x: -0.021966558, y: 0.29161742, z: 0.10343595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792158752
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,12 +740,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1845121241 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114177208940905456, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 369381268}
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1860641326
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +750,6 @@ GameObject:
   - component: {fileID: 1860641329}
   - component: {fileID: 1860641328}
   - component: {fileID: 1860641327}
-  - component: {fileID: 1860641332}
   - component: {fileID: 1860641331}
   - component: {fileID: 1860641330}
   m_Layer: 0
@@ -403,7 +790,7 @@ MonoBehaviour:
   _spreadsheet: {fileID: 11400000, guid: 3529d061ce12e0e4485d4886e41d9ce1, type: 2}
   _camera: {fileID: 2072452892}
   _asteroidsController: {fileID: 1860641327}
-  _characterHealth: {fileID: 0}
+  _astronaut: {fileID: 132252922}
   _populationController: {fileID: 1860641331}
   _uiController: {fileID: 1860641330}
 --- !u!4 &1860641329
@@ -430,8 +817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe553d4858b4b0d478939c859546eacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _populationSlider: {fileID: 1845121241}
-  _healthSlider: {fileID: 560482916}
+  _populationSlider: {fileID: 1059685129}
+  _healthSlider: {fileID: 1059685130}
 --- !u!114 &1860641331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,18 +830,156 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46199f3b287620e46b865d0a21010f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1860641332
+--- !u!1 &1891190591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1891190593}
+  - component: {fileID: 1891190592}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1891190592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860641326}
+  m_GameObject: {fileID: 1891190591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5576492a4d51833498b0af9e4ca86738, type: 3}
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterHealth: {fileID: 0}
+  Radius: 0.1
+  _houses: []
+  Normal: {x: 0.432817, y: 0.31877196, z: -0.8432401}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &1891190593
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891190591}
+  m_LocalRotation: {x: -0.037936483, y: 0.95926064, z: 0.15698756, w: 0.2318078}
+  m_LocalPosition: {x: 0.43563867, y: 0.4030081, z: -0.09027345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1959888299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1959888301}
+  - component: {fileID: 1959888300}
+  m_Layer: 0
+  m_Name: Spawn Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1959888300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959888299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b59114e38c4b40a1c0cbf1794652d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.1
+  _houses: []
+  Normal: {x: -0.14848022, y: -0.17381482, z: 0.97352046}
+  Astronaut: {fileID: 132252922}
+  _astronautCollider: {fileID: 132252923}
+  NextSpawnTime: 0
+--- !u!4 &1959888301
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959888299}
+  m_LocalRotation: {x: 0.08699027, y: -0.07531578, z: 0.0065957033, w: 0.9933362}
+  m_LocalPosition: {x: 0.1476714, y: -0.33775902, z: 0.02099615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132252926}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1961967084
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000008146034
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+      propertyPath: m_Name
+      value: Astronaut
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4e079ac06a08d0d468d63b5d508f9d6d, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &2033905547
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +1065,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 602351645}
+  - {fileID: 1059685128}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
