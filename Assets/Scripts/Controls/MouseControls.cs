@@ -3,11 +3,16 @@
 public class MouseControls : MonoBehaviour
 {
     [SerializeField] private float _speed = 3f;
+    [SerializeField] private Astronaut _astronaut;
+
+    private void OnValidate()
+    {
+        _astronaut = GetComponent<Astronaut>();
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0)) {
-            transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * _speed, Space.World);
-        }
+        if (Input.GetMouseButton(0))
+            _astronaut.Rotate(new Vector2(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X")) * _speed);
     }
 }
