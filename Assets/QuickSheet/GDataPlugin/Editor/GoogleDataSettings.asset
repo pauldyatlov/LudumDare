@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcda13c00cae4f4087d84a149a1c70b, type: 3}
   m_Name: GoogleDataSettings
   m_EditorClassIdentifier: 
-  RuntimePath: Date/Runtime
+  RuntimePath: Data/Runtime
   EditorPath: Data/Editor
   OAuth2Data:
     client_id: 180824097339-46sa44b902gb5dvt7mee5479qagrsv3i.apps.googleusercontent.com
