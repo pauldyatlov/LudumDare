@@ -21,9 +21,8 @@ public class AstronautEditor : Editor
         foreach (var spawnArea in astronaut.SpawnAreas) {
             var color = Handles.color;
             Handles.color = Selection.activeGameObject == spawnArea.gameObject ? Color.red : Color.yellow;
-            //Handles.DrawWireCube(spawnArea.transform.position, Vector3.one * 0.1f);
-            Handles.DrawWireDisc(spawnArea.transform.position, spawnArea.Normal, spawnArea.Radius);
-            //Handles.SphereHandleCap(0, spawnArea.transform.position, Quaternion.LookRotation(spawnArea.Normal), 1, Event.current.type);
+            Handles.DrawWireDisc(spawnArea.transform.position, spawnArea.transform.forward, spawnArea.Radius);
+            Handles.ArrowHandleCap(0, spawnArea.transform.position, spawnArea.transform.rotation, spawnArea.Radius, Event.current.type);
             Handles.color = color;
         }
 
@@ -42,7 +41,6 @@ public class AstronautEditor : Editor
                 var spawnArea = spawnAreaGo.AddComponent<SpawnArea>();
                 spawnArea.transform.SetParent(astronaut.transform);
                 spawnArea.transform.position = hitInfo.point;
-                spawnArea.Normal = hitInfo.normal;
                 spawnArea.transform.rotation = Quaternion.LookRotation(hitInfo.normal);
                 spawnArea.Init();
                 astronaut.SpawnAreas.Add(spawnArea);

@@ -3,7 +3,7 @@
 public class KeyControls : MonoBehaviour
 {
     [SerializeField] private float _speed = 3f;
-    private Astronaut _astronaut;
+    [SerializeField] private Astronaut _astronaut;
 
     private void OnValidate()
     {

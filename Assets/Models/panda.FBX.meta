@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4e079ac06a08d0d468d63b5d508f9d6d
-timeCreated: 1492864987
+guid: 620890e3f027de94781d7e219e299563
+timeCreated: 1492955224
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Plane010
+    4300000: panda
   materials:
     importMaterials: 1
     materialName: 0
