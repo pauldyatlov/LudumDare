@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1411367446083288
 GameObject:
   m_ObjectHideFlags: 1
@@ -1137,6 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95101702089574440}
+  _amountObject: {fileID: 0}
   _affectionType: 1
   _slider: {fileID: 114998199066229518}
   _label: {fileID: 114086064116695946}
@@ -1289,6 +1290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95036870360651520}
+  _amountObject: {fileID: 0}
   _affectionType: 4
   _slider: {fileID: 114239021810446238}
   _label: {fileID: 114816277134925738}
@@ -1331,6 +1333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95689307764338572}
+  _amountObject: {fileID: 0}
   _affectionType: 5
   _slider: {fileID: 114618389980460636}
   _label: {fileID: 114589636597522808}
@@ -1687,6 +1690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95137395908312770}
+  _amountObject: {fileID: 0}
   _affectionType: 3
   _slider: {fileID: 114279750837299742}
   _label: {fileID: 114376679510241154}
@@ -1702,7 +1706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.316}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.147}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1948,6 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95340436963129380}
+  _amountObject: {fileID: 0}
   _affectionType: 2
   _slider: {fileID: 114790176784499028}
   _label: {fileID: 114988771222406950}
@@ -2399,6 +2404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95742586530556636}
+  _amountObject: {fileID: 0}
   _affectionType: 6
   _slider: {fileID: 114663473349127004}
   _label: {fileID: 114938572702686970}
@@ -2414,6 +2420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95718768147001254}
+  _amountObject: {fileID: 0}
   _affectionType: 0
   _slider: {fileID: 114931639788688824}
   _label: {fileID: 114894143121168012}
@@ -4181,7 +4188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -67, y: 121}
+  m_AnchoredPosition: {x: -190, y: 126}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 1, y: 0}
 --- !u!224 &224911044760168406
