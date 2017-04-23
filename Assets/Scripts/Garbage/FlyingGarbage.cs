@@ -27,7 +27,7 @@ public class FlyingGarbage : MonoBehaviour
     {
         for (int i = 0; i < Quantity; i++)
         {
-            var garbage = Instantiate(GetRandomPrefab());
+            var garbage = Instantiate(GetRandomPrefab(i));
             garbage.transform.SetParent(gameObject.transform, false);
             garbage.transform.localPosition = Vector3.zero;
             SetGarbagePosition(garbage);
@@ -67,10 +67,13 @@ public class FlyingGarbage : MonoBehaviour
         return dir;
     }
 
-    private GameObject GetRandomPrefab()
+    private GameObject GetRandomPrefab(int index)
     {
-        var index = UnityEngine.Random.Range(0, Prefabs.Count);
-        return Prefabs.ElementAt(index);
+        if (index < Prefabs.Count)
+            return Prefabs.ElementAt(index); 
+
+        var currentIndex = UnityEngine.Random.Range(0, Prefabs.Count);
+        return Prefabs.ElementAt(currentIndex);
     }
 
     private float GetRandomSpeed()
