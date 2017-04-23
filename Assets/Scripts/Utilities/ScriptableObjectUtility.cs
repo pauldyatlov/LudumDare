@@ -34,8 +34,9 @@ public static class ScriptableObjectUtility
 
 public class CreateAsteroidAsset
 {
+    [MenuItem("Assets/Create/Scenario")]
     public static void CreateAsset()
     {
-        //ScriptableObjectUtility.CreateAsset<AsteroidParameter>();
+        ScriptableObjectUtility.CreateAsset<Scenario>();
     }
 }

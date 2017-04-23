@@ -16,13 +16,15 @@ public class AsteroidsController : MonoBehaviour
 
     private Camera _camera;
     private Asteroids _spreadsheet;
+    private Astronaut _astronaut;
 
     private float _delay;
 
-    public void Init(Camera cam, Asteroids spreadsheet)
+    public void Init(Camera cam, Asteroids spreadsheet, Astronaut astronaut)
     {
         _camera = cam;
         _spreadsheet = spreadsheet;
+        _astronaut = astronaut;
     }
 
     private void Update()
@@ -47,12 +49,14 @@ public class AsteroidsController : MonoBehaviour
 
         var pos = new Vector3(UnityEngine.Random.Range(-20, 20), 
                               UnityEngine.Random.Range(-20, 20), 
-                              UnityEngine.Random.Range(_camera.transform.position.z - 30, _camera.transform.position.z - 20));
+                              UnityEngine.Random.Range(_camera.transform.position.z - 30, -30));
 
         var prefab = Resources.Load<AsteroidObject>("Asteroids/Asteroid" + preset.PREFAB);
 
         var asteroid = Instantiate(prefab, pos, Quaternion.identity, transform);
-        asteroid.Show(preset.AMOUNT, preset.SPEED);
+        var spawnArea = _astronaut.SpawnAreas[UnityEngine.Random.Range(0, _astronaut.SpawnAreas.Count)];
+
+        asteroid.Show(spawnArea.transform.position, preset.AMOUNT, preset.SPEED);
 
         _asteroids.Add(asteroid);
     }

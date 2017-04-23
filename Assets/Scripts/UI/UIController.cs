@@ -1,27 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private Image _populationSlider;
-    [SerializeField] private Image _healthSlider;
+    [SerializeField] private List<ParameterIcon> _uiParameterIcons;
 
-    public void Init()//Action<float> onHealthChanged, Action<float> onPopulationChanged)
+    [SerializeField] private Text _populationLabel;
+    [SerializeField] private Text _healthLabel;
+
+    [SerializeField] private ScenarioPanel _scenarioPanel;
+
+    public void Init()
     {
-        //onHealthChanged += ChangeHealthSliderValue;
-        //onPopulationChanged += ChangePopulationSliderValue;
-
-        _healthSlider.fillAmount = 1;
-        _populationSlider.fillAmount = 1;
+        ParametersCounter.OnValueChanged += SetValue;
     }
 
-    public void ChangeHealthSliderValue(float value)
+    public void BeginScenario(Scenario scenario, Action<Scenario.Decision> onClick)
     {
-        _healthSlider.fillAmount = value / 100;
+        _scenarioPanel.Show(scenario, onClick);
     }
 
-    public void ChangePopulationSliderValue(float value)
+    private void SetValue(EAffectionType type, AffectionParameters parameters)
     {
-        _populationSlider.fillAmount = Mathf.Lerp(0, 1, value);
+        _uiParameterIcons.FirstOrDefault(x => x._affectionType == type).Set(parameters.CurrentCount, parameters.MaxCount);
     }
 }

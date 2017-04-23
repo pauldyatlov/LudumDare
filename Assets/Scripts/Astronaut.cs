@@ -10,10 +10,10 @@ public class Astronaut : MonoBehaviour
     public House HousePrefab;
     public Vector3 CurrentRotationSpeed;
 
-    private Action<float> _onHealthChanged;
+    private Action<int> _onHealthChanged;
 
-    private float _health;
-    public float Health
+    private int _health;
+    public int Health
     {
         get { return _health; }
         set
@@ -29,12 +29,13 @@ public class Astronaut : MonoBehaviour
         SpawnAreas = GetComponentsInChildren<SpawnArea>().ToList();
     }
 
-    public void Init(Action<float> onHealthChanged)
+    public void Init(Action<int> onHealthChanged)
     {
         foreach (var spawnArea in SpawnAreas)
             spawnArea.Init();
 
         _onHealthChanged = onHealthChanged;
+
         Health = 100;
     }
 
