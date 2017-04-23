@@ -26,9 +26,11 @@ public class AstronautEditor : Editor
             Handles.color = color;
         }
 
-        var collider = astronaut.GetComponent<Collider>();
+        var collider = astronaut.GetComponent<MeshCollider>();
         if (collider == null)
             return;
+
+        astronaut.RebakeMesh();
 
         RaycastHit hitInfo;
 

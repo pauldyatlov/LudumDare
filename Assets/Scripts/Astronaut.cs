@@ -11,6 +11,7 @@ public class Astronaut : MonoBehaviour
     public Vector3 CurrentRotationSpeed;
 
     private Action<int> _onHealthChanged;
+    public AnimationCurve PopulationVisualCurve;
 
     private int _health;
     public int Health
@@ -24,6 +25,26 @@ public class Astronaut : MonoBehaviour
         }
     }
 
+    [SerializeField] private Mesh _mesh;
+
+    public Mesh Mesh
+    {
+        get
+        {
+            if (_mesh == null)
+                _mesh = new Mesh();
+
+            return _mesh;
+        }
+    }
+
+    public void RebakeMesh()
+    {
+        var skin = GetComponent<SkinnedMeshRenderer>();
+        skin.BakeMesh(Mesh);
+        GetComponent<MeshCollider>().sharedMesh = Mesh;
+    }
+
     private void OnValidate()
     {
         SpawnAreas = GetComponentsInChildren<SpawnArea>().ToList();
@@ -31,12 +52,16 @@ public class Astronaut : MonoBehaviour
 
     public void Init(Action<int> onHealthChanged)
     {
+        RebakeMesh();
+
         foreach (var spawnArea in SpawnAreas)
             spawnArea.Init();
 
         _onHealthChanged = onHealthChanged;
 
         Health = 100;
+
+        ParametersCounter.OnValueChanged += OnValueChanged;
     }
 
     public void Rotate(Vector3 rotationDelta)
@@ -53,5 +78,11 @@ public class Astronaut : MonoBehaviour
         {
             Health -= 5;
         }
+    }
+
+    private void OnValueChanged(EAffectionType type, AffectionParameters parameters)
+    {
+        if (type < EAffectionType.Oxygen)
+            SpawnAreas[(int)type].SetPopulationCount(parameters.CurrentCount, ParametersCounter.GetPopulationSum());
     }
 }

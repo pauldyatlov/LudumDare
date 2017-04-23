@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,8 @@ public class SpawnArea : MonoBehaviour
     public Astronaut Astronaut;
     [SerializeField] private Collider _astronautCollider;
 
+    public ParticleSystem.Particle[] Particles;
+
     public float NextSpawnTime;
 
     //private void OnValidate()
@@ -17,29 +20,28 @@ public class SpawnArea : MonoBehaviour
     //    Init();
     //}
 
+    public Color Color;
+
+    private void OnEnable()
+    {
+        _particleSystem = GetComponent<ParticleSystem>();
+        _particleSystem.GetParticles(Particles);
+        //_particleSystem.Emit();
+    }
+
     public void Init()
     {
         Astronaut = GetComponentInParent<Astronaut>();
         _astronautCollider = Astronaut.GetComponent<Collider>();
-        _houseSpiral = DrawSpiral(5, Radius, 0.005f).GetEnumerator();
+        _houseSpiral = DrawSpiral(5, Radius, 0.005f).ToArray();
     }
 
-    private void Update()
-    {
-        if (Time.time >= NextSpawnTime) {
-            if (_houseSpiral.MoveNext()) {
-                NextSpawnTime = Time.time + Random.Range(0f, 1f);
-                SpawnHouse();
-            }
-        }
-    }
+    private ParticleSystem _particleSystem;
+    private Vector2[] _houseSpiral;
 
-    private IEnumerator<Vector2> _houseSpiral;
-
-    [ContextMenu("Spawn house")]
-    public void SpawnHouse()
+    public void SpawnHouse(Vector2 point)
     {
-        var mainOffset = (Vector3)_houseSpiral.Current + Vector3.forward * 0.1f;
+        var mainOffset = (Vector3)point + Vector3.forward * 0.1f;
 
         var offset = mainOffset;
         var localPosition = transform.rotation * offset;
@@ -49,7 +51,9 @@ public class SpawnArea : MonoBehaviour
 
         if (_astronautCollider.Raycast(new Ray(worldPosition, -transform.forward), out raycastInfo, 20f)) {
             var house = Instantiate(Astronaut.HousePrefab);
-            SpawnHouse(_astronautCollider, raycastInfo.point + raycastInfo.normal * 0.005f, raycastInfo.normal, house);
+            var main = house.GetComponent<ParticleSystem>().main;
+            main.startColor = new ParticleSystem.MinMaxGradient(Color);
+            SpawnHouse(_astronautCollider, raycastInfo.point + raycastInfo.normal * 0.001f, raycastInfo.normal, house);
             _houses.Add(house);
         }
     }
@@ -83,6 +87,22 @@ public class SpawnArea : MonoBehaviour
             yield return new Vector2(x, y);
             var l = chord / currentRadius;
             angle += Random.Range(l - 0.5f * l, l + 0.5f * l);
+        }
+    }
+
+    public void SetPopulationCount(int count, int max)
+    {
+        var visualCount = (int)(Astronaut.PopulationVisualCurve.Evaluate((float)count / max) * _houseSpiral.Length);
+
+        if (visualCount < _houses.Count) {
+            for (int i = _houses.Count - 1; i >= visualCount; i--) {
+                Destroy(_houses[i].gameObject);
+                _houses.RemoveAt(i);
+            }
+        } else if (visualCount > _houses.Count) {
+            for (int i = _houses.Count; i < visualCount; i++) {
+                SpawnHouse(_houseSpiral[i]);
+            }
         }
     }
 }
