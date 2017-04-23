@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -10,7 +12,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private UIController _uiController;
     [SerializeField] private UICamera _uiCamera;
-
+    
     private DateTime _lastUpdate;
 
     private const int CALL_DELAY = 5;
@@ -42,7 +44,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            _scenariosController.ChangeParameter(EAffectionType.Farmers, ParametersCounter.GetValue(EAffectionType.Farmers).CurrentCount + 5, ParametersCounter.GetPopulationSum(), 1);
+            _scenariosController.ChangeParameter(EAffectionType.Farming, ParametersCounter.GetValue(EAffectionType.Farming).CurrentCount + 5, ParametersCounter.GetPopulationSum(), 1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {

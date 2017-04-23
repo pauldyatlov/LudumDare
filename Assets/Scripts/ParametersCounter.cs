@@ -5,11 +5,11 @@ using UnityEngine;
 
 public enum EAffectionType
 {
-    Religious = 0,
     Military,
-    Farmers,
-    Scientists,
-    Rebels,
+    Science,
+    Farming,
+    Religion,
+    Insurgency,
     Oxygen,
     Population
 }
@@ -69,7 +69,7 @@ public static class ParametersCounter
 
         _variables[type].Update(newParams);
 
-        Debug.Log("<b>Parameters.</b> Change parameter (" + type + ") to value (" + _variables[type].CurrentCount + ")" + " plus is: [" + current + "]");
+        Debug.Log("<b>Parameters.</b> Change parameter (" + type + ") to value (" + _variables[type].CurrentCount + ")");
 
         if (type != EAffectionType.Population)
         {
@@ -121,6 +121,8 @@ public static class ParametersCounter
 
     public static void UpdateIncome(EAffectionType type, int value)
     {
+        Debug.Log("<color=blue><b>Income.</b></color> On type (" + type +") has been increased to (" + value + ")");
+
         _variables[type].Income = value;
 
         if (OnValueChanged != null) {

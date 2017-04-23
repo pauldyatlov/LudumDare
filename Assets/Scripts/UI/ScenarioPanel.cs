@@ -13,29 +13,67 @@ public class ScenarioPanel : MonoBehaviour
     [SerializeField] private Sprite _neutralSprite;
     [SerializeField] private Sprite _disapprovalSprite;
 
-    private readonly List<ScenarioButton> _buttons = new List<ScenarioButton>();
+    [SerializeField] private Button _acceptButton;
 
-    public void Show(Scenario scenario, Action<Scenario.Decision> onClick)
+    private readonly List<ScenarioButton> _buttons = new List<ScenarioButton>();
+    private Action<int[]> _onClick;
+
+    private void Awake()
+    {
+        _acceptButton.onClick.AddListener(Hide);
+    }
+
+    public void Show(EventsData scenario, Action<int[]> onClick)
     {
         gameObject.SetActive(true);
         ParametersCounter.ActiveTime = false;
+        _acceptButton.gameObject.SetActive(false);
 
-        _descriptionLabel.text = scenario.EventDescription;
+        _descriptionLabel.text = scenario.Textru;
 
-        foreach (var item in scenario.Decisions)
+        _onClick = onClick;
+
+        CreateDecisionButton(EStupidAffectionType.Good, scenario);
+        CreateDecisionButton(EStupidAffectionType.Neutral, scenario);
+        CreateDecisionButton(EStupidAffectionType.Bad, scenario);
+    }
+
+    private void CreateDecisionButton(EStupidAffectionType type, EventsData scenario)
+    {
+        var button = Instantiate(_buttonTemplate, _buttonsContainer);
+
+        button.Show(() =>
         {
-            var decision = item;
-            var button = Instantiate(_buttonTemplate, _buttonsContainer);
-
-            button.Show(() =>
+            switch (type)
             {
-                onClick(decision);
-                Hide();
-            }, 
-            GetSpriteByType(item.PandaApprovalStatus),
-            item.DecisionDescription);
-            _buttons.Add(button);
+                case EStupidAffectionType.Good:
+                    _onClick(scenario.Agree);
+                    break;
+                case EStupidAffectionType.Neutral:
+                    _onClick(scenario.Ignore);
+                    break;
+                case EStupidAffectionType.Bad:
+                    _onClick(scenario.Contra);
+                    break;
+            }
+            
+            ShowResultActionDescription("CREATE TEXT AFTER DECISION!");
+        },
+        GetSpriteByType(type),
+        scenario.Textru);
+        _buttons.Add(button);
+    }
+
+    private void ShowResultActionDescription(string description)
+    {
+        foreach (var button in _buttons) {
+            Destroy(button.gameObject);
         }
+
+        _buttons.Clear();
+
+        _descriptionLabel.text = description;
+        _acceptButton.gameObject.SetActive(true);
     }
 
     private Sprite GetSpriteByType(EStupidAffectionType type)

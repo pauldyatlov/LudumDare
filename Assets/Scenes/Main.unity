@@ -572,31 +572,6 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114621284208537106, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114567620214233420, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114970576956854244, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528228078768844, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114306187198808894, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 736430bccf7c4bd46a09ef8ada7121eb, type: 2}
   m_IsPrefabParent: 0
@@ -861,8 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c96e1d2a606a4e4687de2886616d33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scenarios:
-  - {fileID: 11400000, guid: 7b449581f99d7e5498a6b0f9b294a0da, type: 2}
+  _scenarios: {fileID: 11400000, guid: deff75fdc2d8a7e48be6501a6e63419c, type: 2}
 --- !u!114 &1860641332
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,11 +25,11 @@ MonoBehaviour:
       \u0440\u0430\u0434\u0438\u043E \u0440\u0430\u0434\u043E\u043D\u0435\u0436"
     Affections:
     - AffectionType: 0
-      Amout: 10
+      Amout: -1
     - AffectionType: 3
-      Amout: -15
+      Amout: 1
     - AffectionType: 1
-      Amout: 2
+      Amout: 1
     PandaApprovalStatus: 0
   - DecisionDescription: "\u0421\u0442\u0430\u0440\u0430\u0442\u0435\u043B\u044C\u043D\u043E
       \u0438\u0433\u043D\u043E\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C."
@@ -39,11 +39,11 @@ MonoBehaviour:
       \u0433\u0440\u0443\u043D\u0442\u0430"
     Affections:
     - AffectionType: 3
-      Amout: 17
+      Amout: 1
     - AffectionType: 1
-      Amout: 3
+      Amout: 1
     - AffectionType: 5
-      Amout: -10
+      Amout: -1
     PandaApprovalStatus: 1
   - DecisionDescription: "\u0420\u044B\u0447\u0430\u0442\u044C \u0438 \u0440\u0430\u0437\u043C\u0430\u0445\u0438\u0432\u0430\u0442\u044C
       \u0440\u0443\u043A\u0430\u043C\u0438."
@@ -54,11 +54,11 @@ MonoBehaviour:
       \u0441\u0442\u0440\u043E\u044F\u0442 \u0443\u043A\u0440\u0435\u043F\u0440\u0430\u0439\u043E\u043D\u044B"
     Affections:
     - AffectionType: 1
-      Amout: 20
+      Amout: 1
     - AffectionType: 2
-      Amout: -10
+      Amout: -1
     - AffectionType: 5
-      Amout: -6
+      Amout: -1
     PandaApprovalStatus: 2
   Condition:
     AffectionType: 6

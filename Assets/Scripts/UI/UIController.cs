@@ -18,13 +18,27 @@ public class UIController : MonoBehaviour
         ParametersCounter.OnValueChanged += SetValue;
     }
 
-    public void BeginScenario(Scenario scenario, Action<Scenario.Decision> onClick)
+    public void BeginScenario(EventsData scenario, Action<int[]> onClick)
     {
+        if (_scenarioPanel.gameObject.activeSelf)
+        {
+            Debug.Log("Scenario panel is already active");
+            return;
+        }
+
         _scenarioPanel.Show(scenario, onClick);
     }
 
     private void SetValue(EAffectionType type, AffectionParameters parameters)
     {
-        _uiParameterIcons.FirstOrDefault(x => x._affectionType == type).Set(parameters.CurrentCount, parameters.MaxCount);
+        var icon = _uiParameterIcons.FirstOrDefault(x => x._affectionType == type);
+        if (icon != null)
+        {
+            icon.Set(parameters.CurrentCount, parameters.MaxCount);
+        }
+        else
+        {
+            Debug.LogError("<b>UIController.</b> Type of (" + type + ") is null.");
+        }
     }
 }

@@ -12,8 +12,7 @@ public class ParameterIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] public EAffectionType _affectionType;
     [SerializeField] private Image _slider;
     [SerializeField] private Text _label;
-
-    private Coroutine _changeCoroutine;
+    
     private float _memoValue;
 
     public void Set(float value, float maxValue)
@@ -21,10 +20,6 @@ public class ParameterIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         _slider.fillAmount = value / maxValue;
 
         _label.text = value.ToString(CultureInfo.InvariantCulture);
-
-        if (_changeCoroutine != null) {
-            StopCoroutine(_changeCoroutine);
-        }
 
         if (gameObject.activeSelf && _memoValue != value)
         {

@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class ScenariosController : MonoBehaviour
 {
-    [SerializeField] private List<Scenario> _scenarios;
+    [SerializeField] private Events _scenarios;
 
     private UIController _uiController;
+    private List<EventsData> _passedEvents = new List<EventsData>();
 
     public void Init(UIController uiController)
     {
         _uiController = uiController;
 
-        ParametersCounter.SetValue(EAffectionType.Farmers,    10, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Farming,    10, 50, 1);
         ParametersCounter.SetValue(EAffectionType.Military,   10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Rebels,     10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Religious,  10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Scientists, 10, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Insurgency,     10, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Religion,  10, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Science, 10, 50, 1);
         ParametersCounter.SetValue(EAffectionType.Oxygen,    100, 100, -1);
         ParametersCounter.SetValue(EAffectionType.Population, 50, 1000, 1);
     }
@@ -31,26 +32,26 @@ public class ScenariosController : MonoBehaviour
 
         ParametersCounter.SetValue(type, value, maxValue, income);
 
-        foreach (var scenario in _scenarios.Where(x => !x.Passed))
+        foreach (var scenario in _scenarios.dataArray.Where(x => !_passedEvents.Contains(x)))
         {
-            if (scenario.Condition.AffectionType == type && 
-                value >= scenario.Condition.Amout)
+            if (scenario.EAFFECTIONTYPE == type && value >= scenario.Breakpoint)
             {
-                scenario.Passed = true;
                 _uiController.BeginScenario(scenario, OnButtonClick);
+
+                _passedEvents.Add(scenario);
 
                 return;
             }
         }
     }
 
-    private static void OnButtonClick(Scenario.Decision decision)
+    private static void OnButtonClick(int[] affections)
     {
-        foreach (var affection in decision.Affections)
+        for (var i = 0; i < affections.Length; i++)
         {
-            var info = ParametersCounter.GetValue(affection.AffectionType);
+            var info = ParametersCounter.GetValue((EAffectionType)i);
 
-            ParametersCounter.UpdateCurrentValue(affection.AffectionType, info.CurrentCount + affection.Amout);
+            ParametersCounter.UpdateIncome((EAffectionType)i, info.Income + affections[i]);
         }
     }
 }
