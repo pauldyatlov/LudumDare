@@ -12,6 +12,6 @@ public class UICamera : MonoBehaviour
     private void Update()
     {
         transform.LookAt(_followingTransform, Vector3.up);
-        transform.Translate(Vector3.right * Time.deltaTime * 0.1f);
+        transform.Translate(Vector3.right * Time.deltaTime * 0.02f);
     }
 }
