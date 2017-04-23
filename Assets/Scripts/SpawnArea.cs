@@ -30,7 +30,7 @@ public class SpawnArea : MonoBehaviour
             if (_houseSpiral.MoveNext()) {
                 NextSpawnTime = Time.time + Random.Range(0f, 1f);
                 SpawnHouse();
-            } else Debug.Log("finished");
+            }
         }
     }
 
