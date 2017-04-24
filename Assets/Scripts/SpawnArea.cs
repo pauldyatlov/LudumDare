@@ -22,13 +22,6 @@ public class SpawnArea : MonoBehaviour
 
     public Color Color;
 
-    private void OnEnable()
-    {
-        _particleSystem = GetComponent<ParticleSystem>();
-        _particleSystem.GetParticles(Particles);
-        //_particleSystem.Emit();
-    }
-
     public void Init()
     {
         Astronaut = GetComponentInParent<Astronaut>();
@@ -36,7 +29,6 @@ public class SpawnArea : MonoBehaviour
         _houseSpiral = DrawSpiral(5, Radius, 0.005f).ToArray();
     }
 
-    private ParticleSystem _particleSystem;
     private Vector2[] _houseSpiral;
 
     public void SpawnHouse(Vector2 point)
