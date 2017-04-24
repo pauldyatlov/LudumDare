@@ -105,19 +105,19 @@ public class ScenarioPanel : MonoBehaviour
                     _onClick(scenario.Agree, scenario.Agreeinstant);
 
                     ShowResultActionDescription(GetLastScreenMessage(scenario.Agreeinstant[2], scenario.Agree[2], scenario.Agreeinstant[0], scenario.Agree[0], scenario.Agreeinstant[3], scenario.Agree[3], 
-                        scenario.Agreeinstant[4], scenario.Agree[4], scenario.Agreeinstant[1], scenario.Agree[1]));
+                        scenario.Agreeinstant[4], scenario.Agree[4], scenario.Agreeinstant[1], scenario.Agree[1], scenario.Agreeinstant[5], scenario.Agree[5]));
                     break;
                 case EStupidAffectionType.Neutral:
                     _onClick(scenario.Ignore, scenario.Ignoreinstant);
 
                     ShowResultActionDescription(GetLastScreenMessage(scenario.Ignoreinstant[2], scenario.Ignore[2], scenario.Ignoreinstant[0], scenario.Ignore[0], scenario.Ignoreinstant[3], scenario.Ignore[3],
-                        scenario.Ignoreinstant[4], scenario.Ignore[4], scenario.Ignoreinstant[1], scenario.Ignore[1]));
+                        scenario.Ignoreinstant[4], scenario.Ignore[4], scenario.Ignoreinstant[1], scenario.Ignore[1], scenario.Ignoreinstant[5], scenario.Ignore[5]));
                     break;
                 case EStupidAffectionType.Bad:
                     _onClick(scenario.Contra, scenario.Contrainstant);
 
                     ShowResultActionDescription(GetLastScreenMessage(scenario.Contrainstant[2], scenario.Contra[2], scenario.Contrainstant[0], scenario.Contra[0], scenario.Contrainstant[3], scenario.Contra[3],
-                        scenario.Contrainstant[4], scenario.Contra[4], scenario.Contrainstant[1], scenario.Contra[1]));
+                        scenario.Contrainstant[4], scenario.Contra[4], scenario.Contrainstant[1], scenario.Contra[1], scenario.Contrainstant[5], scenario.Contra[5]));
                     break;
             }
            
@@ -126,21 +126,23 @@ public class ScenarioPanel : MonoBehaviour
         _buttons.Add(button);
     }
 
-    private string GetLastScreenMessage(int farmers, int farmersIncome, int military, int militaryIncome, int religion, int religionIncome, int rebel, int rebelIncome, int science, int scienceIncome)
+    private string GetLastScreenMessage(int farmers, int farmersIncome, int military, int militaryIncome, int religion, int religionIncome, int rebel, int rebelIncome, int science, int scienceIncome, int oxygen, int oxygenIncome)
     {
-        return                 "Parameters changed:\n" +
-               (farmers > 0 ? ("<color=#DDA723FF>Farmers: " + farmers + ", </color>") : "") +
-               (military > 0 ? ("<color=#8BFFADFF>Military: " + military + ", </color>") : "") +
-               (religion > 0 ? ("<color=#DDD795FF>Religion: " + religion + ", </color>") : "") +
-               (rebel > 0 ? ("<color=#D24A43FF>Rebels: " + rebel + ", </color>") : "") +
-               (science > 0 ? ("<color=#B5A1F8FF>Science: " + science + "</color>") : "") + 
-               
+        return "Parameters changed:\n" +
+               (farmers != 0 ? ("<color=#DDA723FF>Farmers: " + farmers + ", </color>") : "") +
+               (military != 0 ? ("<color=#8BFFADFF>Military: " + military + ", </color>") : "") +
+               (religion != 0 ? ("<color=#DDD795FF>Religion: " + religion + ", </color>") : "") +
+               (rebel != 0 ? ("<color=#D24A43FF>Rebels: " + rebel + ", </color>") : "") +
+               (science != 0 ? ("<color=#B5A1F8FF>Science: " + science + ", </color>") : "") +
+               (oxygen != 0 ? ("<color=#52B4D7FF>Oxygen: " + oxygen + " </color>") : "") +
+
                "\nIncome changed:\n" +
-               (farmersIncome > 0 ? ("<color=#DDA723FF>Farmers: " + farmersIncome + ", </color>") : "") +
-               (militaryIncome > 0 ? ("<color=#8BFFADFF>Military: " + militaryIncome + ", </color>") : "") +
-               (religionIncome > 0 ? ("<color=#DDD795FF>Religion: " + religionIncome + ", </color>") : "") +
-               (rebelIncome > 0 ? ("<color=#D24A43FF>Rebels: " + rebelIncome + ", </color>") : "") +
-               (scienceIncome > 0 ? ("<color=#B5A1F8FF>Science: " + scienceIncome + "</color>") : "");
+               (farmersIncome != 0 ? ("<color=#DDA723FF>Farmers: " + farmersIncome + ", </color>") : "") +
+               (militaryIncome != 0 ? ("<color=#8BFFADFF>Military: " + militaryIncome + ", </color>") : "") +
+               (religionIncome != 0 ? ("<color=#DDD795FF>Religion: " + religionIncome + ", </color>") : "") +
+               (rebelIncome != 0 ? ("<color=#D24A43FF>Rebels: " + rebelIncome + ", </color>") : "") +
+               (scienceIncome != 0 ? ("<color=#B5A1F8FF>Science: " + scienceIncome + ", </color>") : "") +
+               (oxygenIncome != 0 ? ("<color=#52B4D7FF>Oxygen: " + oxygenIncome + "</color>") : "") + ".";
     }
 
     private void ShowResultActionDescription(string description)

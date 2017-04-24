@@ -25,7 +25,7 @@ public class ParameterIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         if (_income != null)
         {
-            _income.text = (income > 0 ? "+" : "-") + (income.ToString(CultureInfo.InvariantCulture));
+            _income.text = (income > 0 ? "+" : (income < 0 ? "-" : "")) + (income.ToString(CultureInfo.InvariantCulture));
         }
 
         if (gameObject.activeSelf && _memoValue != value)

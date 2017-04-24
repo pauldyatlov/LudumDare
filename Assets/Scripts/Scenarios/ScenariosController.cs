@@ -25,7 +25,7 @@ public class ScenariosController : MonoBehaviour
                                                              + ParametersCounter.StartInsurgency 
                                                              + ParametersCounter.StartReligion 
                                                              + ParametersCounter.StartReligion 
-                                                             + ParametersCounter.StartScience, 1500, 1);
+                                                             + ParametersCounter.StartScience, 2500, 1);
     }
 
     public void ChangeParameter(EAffectionType type, int value, int maxValue, int income, bool displayLog = true)
