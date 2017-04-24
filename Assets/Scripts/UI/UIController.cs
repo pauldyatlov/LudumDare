@@ -48,7 +48,7 @@ public class UIController : MonoBehaviour
         var icon = _uiParameterIcons.FirstOrDefault(x => x._affectionType == type);
         if (icon != null)
         {
-            icon.Set(parameters.CurrentCount, parameters.MaxCount);
+            icon.Set(parameters.CurrentCount, parameters.MaxCount, parameters.Income);
         }
         else
         {

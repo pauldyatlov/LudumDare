@@ -11,15 +11,22 @@ public class ParameterIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private GameObject _amountObject;
     [SerializeField] public EAffectionType _affectionType;
     [SerializeField] private Image _slider;
-    [SerializeField] private Text _label;
-    
+
+    [SerializeField] private Text _currentAmount;
+    [SerializeField] private Text _income;
+
     private float _memoValue;
 
-    public void Set(float value, float maxValue)
+    public void Set(float value, float maxValue, float income)
     {
         _slider.fillAmount = value / maxValue;
 
-        _label.text = value.ToString(CultureInfo.InvariantCulture);
+        _currentAmount.text = value.ToString(CultureInfo.InvariantCulture);
+
+        if (_income != null)
+        {
+            _income.text = (income > 0 ? "+" : "-") + (income.ToString(CultureInfo.InvariantCulture));
+        }
 
         if (gameObject.activeSelf && _memoValue != value)
         {

@@ -7,7 +7,7 @@ public class ScenariosController : MonoBehaviour
     [SerializeField] private Events _scenarios;
 
     private UIController _uiController;
-    private List<EventsData> _passedEvents = new List<EventsData>();
+    private readonly List<EventsData> _passedEvents = new List<EventsData>();
 
     public void Init(UIController uiController)
     {
@@ -25,7 +25,7 @@ public class ScenariosController : MonoBehaviour
                                                              + ParametersCounter.StartInsurgency 
                                                              + ParametersCounter.StartReligion 
                                                              + ParametersCounter.StartReligion 
-                                                             + ParametersCounter.StartScience, 1000, 1);
+                                                             + ParametersCounter.StartScience, 1500, 1);
     }
 
     public void ChangeParameter(EAffectionType type, int value, int maxValue, int income, bool displayLog = true)
