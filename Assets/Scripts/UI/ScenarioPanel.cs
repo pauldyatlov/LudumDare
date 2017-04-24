@@ -9,9 +9,21 @@ public class ScenarioPanel : MonoBehaviour
     [SerializeField] private ScenarioButton _buttonTemplate;
     [SerializeField] private RectTransform _buttonsContainer;
 
-    [SerializeField] private Sprite _approvalSprite;
-    [SerializeField] private Sprite _neutralSprite;
-    [SerializeField] private Sprite _disapprovalSprite;
+    [SerializeField] private Image _scenarioImage;
+
+    [SerializeField] private Sprite _beginSprite;
+    [SerializeField] private Sprite _farmingSprite;
+    [SerializeField] private Sprite _insurgencySprite;
+    [SerializeField] private Sprite _militarySprite;
+    [SerializeField] private Sprite _religionSprite;
+    [SerializeField] private Sprite _scienceSprite;
+
+    [SerializeField] private Sprite _oxygenGameOverSprite;
+    [SerializeField] private Sprite _farmingGameOverSprite;
+    [SerializeField] private Sprite _insurgencyGameOverSprite;
+    [SerializeField] private Sprite _militaryGameOverSprite;
+    [SerializeField] private Sprite _religionGameOverSprite;
+    [SerializeField] private Sprite _scienceGameOverSprite;
 
     [SerializeField] private Text _acceptButtonLabel;
     [SerializeField] private Button _acceptButton;
@@ -33,6 +45,31 @@ public class ScenarioPanel : MonoBehaviour
         _descriptionLabel.text = scenario.Description;
 
         _onClick = onClick;
+
+        switch (scenario.EAFFECTIONTYPE)
+        {
+            case EAffectionType.Population:
+                _scenarioImage.sprite = _beginSprite;
+                break;
+            case EAffectionType.Farming:
+                _scenarioImage.sprite = !scenario.Gameover ? _farmingSprite : _farmingGameOverSprite;
+                break;
+            case EAffectionType.Insurgency:
+                _scenarioImage.sprite = !scenario.Gameover ? _insurgencySprite : _insurgencyGameOverSprite;
+                break;
+            case EAffectionType.Military:
+                _scenarioImage.sprite = !scenario.Gameover ? _militarySprite : _militaryGameOverSprite;
+                break;
+            case EAffectionType.Religion:
+                _scenarioImage.sprite = !scenario.Gameover ? _religionSprite : _religionGameOverSprite;
+                break;
+            case EAffectionType.Science:
+                _scenarioImage.sprite = !scenario.Gameover ? _scienceSprite : _scienceGameOverSprite;
+                break;
+            case EAffectionType.Oxygen:
+                _scenarioImage.sprite = !scenario.Gameover ? _beginSprite : _oxygenGameOverSprite;
+                break;
+        }
 
         if (scenario.Gameover)
         {
