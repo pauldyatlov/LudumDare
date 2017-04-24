@@ -10,6 +10,8 @@ public class CityNoise : MonoBehaviour
 
 	private void Update ()
 	{
-	    _noiseAudioSource.volume = 0.2f + _noiseCurve.Evaluate(Time.time) * Mathf.Clamp(ParametersCounter.GetPopulationSum() / 750, 0, 1);
+	    var population = GameController.GameStarted ? ParametersCounter.GetPopulationSum() : 0;
+
+        _noiseAudioSource.volume = 0.2f + _noiseCurve.Evaluate(Time.time) * Mathf.Clamp(population / 750, 0, 1);
 	}
 }
