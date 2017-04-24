@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -87,13 +88,30 @@ public class ScenarioPanel : MonoBehaviour
         }
         else
         {
-            CreateDecisionButton(EStupidAffectionType.Good, scenario);
-            CreateDecisionButton(EStupidAffectionType.Neutral, scenario);
-            CreateDecisionButton(EStupidAffectionType.Bad, scenario);
+            var createdButtons = new List<ScenarioButton>
+            {
+                CreateDecisionButton(EStupidAffectionType.Good, scenario),
+                CreateDecisionButton(EStupidAffectionType.Neutral, scenario),
+                CreateDecisionButton(EStupidAffectionType.Bad, scenario)
+            };
+
+            var indexes = new List<int>
+            {
+                1,
+                2,
+                3
+            };
+
+            foreach (var index in createdButtons.Select(item => UnityEngine.Random.Range(0, indexes.Count)))
+            {
+                createdButtons[indexes.FirstOrDefault(x => x == index)].transform.SetAsFirstSibling();
+
+                indexes.Remove(index);
+            }
         }
     }
 
-    private void CreateDecisionButton(EStupidAffectionType type, EventsData scenario)
+    private ScenarioButton CreateDecisionButton(EStupidAffectionType type, EventsData scenario)
     {
         var button = Instantiate(_buttonTemplate, _buttonsContainer);
 
@@ -124,25 +142,36 @@ public class ScenarioPanel : MonoBehaviour
         },
         GetButtonLabelByType(type, scenario));
         _buttons.Add(button);
+
+        return button;
     }
 
     private string GetLastScreenMessage(int farmers, int farmersIncome, int military, int militaryIncome, int religion, int religionIncome, int rebel, int rebelIncome, int science, int scienceIncome, int oxygen, int oxygenIncome)
     {
-        return "Parameters changed:\n" +
-               (farmers != 0 ? ("<color=#DDA723FF>Farmers: " + farmers + ", </color>") : "") +
-               (military != 0 ? ("<color=#8BFFADFF>Military: " + military + ", </color>") : "") +
-               (religion != 0 ? ("<color=#DDD795FF>Religion: " + religion + ", </color>") : "") +
-               (rebel != 0 ? ("<color=#D24A43FF>Rebels: " + rebel + ", </color>") : "") +
-               (science != 0 ? ("<color=#B5A1F8FF>Science: " + science + ", </color>") : "") +
-               (oxygen != 0 ? ("<color=#52B4D7FF>Oxygen: " + oxygen + " </color>") : "") +
+        var parameters = "Parameters changed:\n" +
+                         (farmers != 0 ? ("<color=#DDA723FF>Farmers: " + farmers + ", </color>") : "") +
+                         (military != 0 ? ("<color=#8BFFADFF>Military: " + military + ", </color>") : "") +
+                         (religion != 0 ? ("<color=#DDD795FF>Religion: " + religion + ", </color>") : "") +
+                         (rebel != 0 ? ("<color=#D24A43FF>Rebels: " + rebel + ", </color>") : "") +
+                         (science != 0 ? ("<color=#B5A1F8FF>Science: " + science + ", </color>") : "") +
+                         (oxygen != 0 ? ("<color=#52B4D7FF>Oxygen: " + oxygen + " </color>") : "");
 
-               "\nIncome changed:\n" +
+        var income = "\nIncome changed:\n" +
                (farmersIncome != 0 ? ("<color=#DDA723FF>Farmers: " + farmersIncome + ", </color>") : "") +
                (militaryIncome != 0 ? ("<color=#8BFFADFF>Military: " + militaryIncome + ", </color>") : "") +
                (religionIncome != 0 ? ("<color=#DDD795FF>Religion: " + religionIncome + ", </color>") : "") +
                (rebelIncome != 0 ? ("<color=#D24A43FF>Rebels: " + rebelIncome + ", </color>") : "") +
                (scienceIncome != 0 ? ("<color=#B5A1F8FF>Science: " + scienceIncome + ", </color>") : "") +
                (oxygenIncome != 0 ? ("<color=#52B4D7FF>Oxygen: " + oxygenIncome + "</color>") : "") + ".";
+
+        if (farmers != 0 || military != 0 || religion != 0 || rebel != 0 || science != 0 || oxygen != 0)
+        {
+            return string.Concat(parameters, income);
+        }
+        else
+        {
+            return income;
+        }
     }
 
     private void ShowResultActionDescription(string description)
