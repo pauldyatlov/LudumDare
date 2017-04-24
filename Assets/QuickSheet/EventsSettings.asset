@@ -30,11 +30,7 @@ MonoBehaviour:
     isEnable: 0
     isArray: 0
   - type: 1
-    name: TextRU
-    isEnable: 0
-    isArray: 0
-  - type: 1
-    name: TextEN
+    name: Description
     isEnable: 0
     isArray: 0
   - type: 3
@@ -42,11 +38,35 @@ MonoBehaviour:
     isEnable: 0
     isArray: 1
   - type: 3
+    name: IgnoreInstant
+    isEnable: 0
+    isArray: 1
+  - type: 1
+    name: IgnoreButtonLabel
+    isEnable: 0
+    isArray: 0
+  - type: 3
     name: Agree
     isEnable: 0
     isArray: 1
   - type: 3
+    name: AgreeInstant
+    isEnable: 0
+    isArray: 1
+  - type: 1
+    name: AgreeButtonLabel
+    isEnable: 0
+    isArray: 0
+  - type: 3
     name: Contra
     isEnable: 0
     isArray: 1
+  - type: 3
+    name: ContraInstant
+    isEnable: 0
+    isArray: 1
+  - type: 1
+    name: ContraButtonLabel
+    isEnable: 0
+    isArray: 0
   AccessCode: 

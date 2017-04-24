@@ -14,9 +14,9 @@ using UnityQuickSheet;
 ///
 [CustomEditor(typeof(Events))]
 public class EventsEditor : BaseGoogleEditor<Events>
-{
+{	    
     public override bool Load()
-    {
+    {        
         Events targetData = target as Events;
         
         var client = new DatabaseClient("", "");

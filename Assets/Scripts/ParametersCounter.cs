@@ -57,7 +57,7 @@ public static class ParametersCounter
         }
     }
 
-    public static void SetValue(EAffectionType type, int current, int max, int income)
+    public static void SetValue(EAffectionType type, int current, int max, int income, bool displayLog = true)
     {
         var newParams = new AffectionParameters
         {
@@ -69,7 +69,10 @@ public static class ParametersCounter
 
         _variables[type].Update(newParams);
 
-        Debug.Log("<b>Parameters.</b> Change parameter (" + type + ") to value (" + _variables[type].CurrentCount + ")");
+        if (displayLog)
+        {
+            Debug.Log("<b>Parameters.</b> Change parameter (" + type + ") to value (" + _variables[type].CurrentCount + ")");
+        }
 
         if (type != EAffectionType.Population)
         {

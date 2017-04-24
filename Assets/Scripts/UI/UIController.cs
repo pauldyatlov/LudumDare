@@ -18,7 +18,7 @@ public class UIController : MonoBehaviour
         ParametersCounter.OnValueChanged += SetValue;
     }
 
-    public void BeginScenario(EventsData scenario, Action<int[]> onClick)
+    public void BeginScenario(EventsData scenario, Action<int[], int[]> onClick)
     {
         if (_scenarioPanel.gameObject.activeSelf)
         {

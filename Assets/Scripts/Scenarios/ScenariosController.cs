@@ -22,7 +22,7 @@ public class ScenariosController : MonoBehaviour
         ParametersCounter.SetValue(EAffectionType.Population, 50, 1000, 1);
     }
 
-    public void ChangeParameter(EAffectionType type, int value, int maxValue, int income)
+    public void ChangeParameter(EAffectionType type, int value, int maxValue, int income, bool displayLog = true)
     {
         if (_uiController == null) return;
 
@@ -30,11 +30,14 @@ public class ScenariosController : MonoBehaviour
             maxValue = ParametersCounter.GetPopulationSum();
         }
 
-        ParametersCounter.SetValue(type, value, maxValue, income);
+        ParametersCounter.SetValue(type, value, maxValue, income, displayLog);
 
         foreach (var scenario in _scenarios.dataArray.Where(x => !_passedEvents.Contains(x)))
         {
-            if (scenario.EAFFECTIONTYPE == type && value >= scenario.Breakpoint)
+            if (scenario.EAFFECTIONTYPE == type && !_passedEvents.Contains(scenario) &&
+                    (scenario.Breakpoint > 0 
+                    ? value >= scenario.Breakpoint 
+                    : value <= scenario.Breakpoint))
             {
                 _uiController.BeginScenario(scenario, OnButtonClick);
 
@@ -45,13 +48,20 @@ public class ScenariosController : MonoBehaviour
         }
     }
 
-    private static void OnButtonClick(int[] affections)
+    private static void OnButtonClick(int[] income, int[] instant)
     {
-        for (var i = 0; i < affections.Length; i++)
+        for (var i = 0; i < income.Length; i++)
         {
             var info = ParametersCounter.GetValue((EAffectionType)i);
 
-            ParametersCounter.UpdateIncome((EAffectionType)i, info.Income + affections[i]);
+            ParametersCounter.UpdateIncome((EAffectionType)i, info.Income + income[i]);
+        }
+
+        for (var i = 0; i < income.Length; i++)
+        {
+            var info = ParametersCounter.GetValue((EAffectionType)i);
+
+            ParametersCounter.SetValue((EAffectionType)i, info.CurrentCount + instant[i], info.MaxCount, info.Income);
         }
     }
 }

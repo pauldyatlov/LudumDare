@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
         {
             var info = ParametersCounter.GetValue(affectionType);
 
-            _scenariosController.ChangeParameter(affectionType, info.CurrentCount + info.Income, ParametersCounter.GetPopulationSum(), info.Income);
+            _scenariosController.ChangeParameter(affectionType, info.CurrentCount + info.Income, ParametersCounter.GetPopulationSum(), info.Income, false);
         }
     }
 }

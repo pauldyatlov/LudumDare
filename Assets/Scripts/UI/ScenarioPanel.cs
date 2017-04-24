@@ -16,20 +16,20 @@ public class ScenarioPanel : MonoBehaviour
     [SerializeField] private Button _acceptButton;
 
     private readonly List<ScenarioButton> _buttons = new List<ScenarioButton>();
-    private Action<int[]> _onClick;
+    private Action<int[], int[]> _onClick;
 
     private void Awake()
     {
         _acceptButton.onClick.AddListener(Hide);
     }
 
-    public void Show(EventsData scenario, Action<int[]> onClick)
+    public void Show(EventsData scenario, Action<int[], int[]> onClick)
     {
         gameObject.SetActive(true);
         ParametersCounter.ActiveTime = false;
         _acceptButton.gameObject.SetActive(false);
 
-        _descriptionLabel.text = scenario.Textru;
+        _descriptionLabel.text = scenario.Description;
 
         _onClick = onClick;
 
@@ -47,20 +47,19 @@ public class ScenarioPanel : MonoBehaviour
             switch (type)
             {
                 case EStupidAffectionType.Good:
-                    _onClick(scenario.Agree);
+                    _onClick(scenario.Agree, scenario.Agreeinstant);
                     break;
                 case EStupidAffectionType.Neutral:
-                    _onClick(scenario.Ignore);
+                    _onClick(scenario.Ignore, scenario.Ignoreinstant);
                     break;
                 case EStupidAffectionType.Bad:
-                    _onClick(scenario.Contra);
+                    _onClick(scenario.Contra, scenario.Contrainstant);
                     break;
             }
             
             ShowResultActionDescription("CREATE TEXT AFTER DECISION!");
         },
-        GetSpriteByType(type),
-        scenario.Textru);
+        GetButtonLabelByType(type, scenario));
         _buttons.Add(button);
     }
 
@@ -76,16 +75,16 @@ public class ScenarioPanel : MonoBehaviour
         _acceptButton.gameObject.SetActive(true);
     }
 
-    private Sprite GetSpriteByType(EStupidAffectionType type)
+    private string GetButtonLabelByType(EStupidAffectionType type, EventsData scenario)
     {
         switch (type)
         {
             case EStupidAffectionType.Good:
-                return _approvalSprite;
+                return scenario.Agreebuttonlabel;
             case EStupidAffectionType.Neutral:
-                return _neutralSprite;
+                return scenario.Ignorebuttonlabel;
             case EStupidAffectionType.Bad:
-                return _disapprovalSprite;
+                return scenario.Contrabuttonlabel;
             default:
                 throw new ArgumentOutOfRangeException("type", type, null);
         }
