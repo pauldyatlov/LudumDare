@@ -39,6 +39,8 @@ public class ScenariosController : MonoBehaviour
                     ? value >= scenario.Breakpoint 
                     : value <= scenario.Breakpoint))
             {
+                Debug.Log("<color=magenta><b>Scenario.</b></color> Starting scenario with type (" + type + "). Value is ( " + value + "), breakpoint is (" + scenario.Breakpoint + ")");
+
                 _uiController.BeginScenario(scenario, OnButtonClick);
 
                 _passedEvents.Add(scenario);
