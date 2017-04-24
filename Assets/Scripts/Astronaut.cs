@@ -13,6 +13,8 @@ public class Astronaut : MonoBehaviour
     private Action<int> _onHealthChanged;
     public AnimationCurve PopulationVisualCurve;
 
+    public SkinnedMeshRenderer Skin;
+
     private int _health;
     public int Health
     {
@@ -40,12 +42,7 @@ public class Astronaut : MonoBehaviour
 
     public void RebakeMesh()
     {
-        var skin = GetComponent<SkinnedMeshRenderer>();
-
-        if (skin == null)
-            return;
-
-        skin.BakeMesh(Mesh);
+        Skin.BakeMesh(Mesh);
         GetComponent<MeshCollider>().sharedMesh = Mesh;
     }
 
