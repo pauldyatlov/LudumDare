@@ -41,6 +41,10 @@ public class Astronaut : MonoBehaviour
     public void RebakeMesh()
     {
         var skin = GetComponent<SkinnedMeshRenderer>();
+
+        if (skin == null)
+            return;
+
         skin.BakeMesh(Mesh);
         GetComponent<MeshCollider>().sharedMesh = Mesh;
     }
@@ -82,7 +86,7 @@ public class Astronaut : MonoBehaviour
 
     private void OnValueChanged(EAffectionType type, AffectionParameters parameters)
     {
-        if (type < EAffectionType.Oxygen)
+        if (type < EAffectionType.Oxygen && (int)type < SpawnAreas.Count)
             SpawnAreas[(int)type].SetPopulationCount(parameters.CurrentCount, ParametersCounter.GetPopulationSum());
     }
 }
