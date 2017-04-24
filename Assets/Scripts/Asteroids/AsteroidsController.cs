@@ -19,14 +19,20 @@ public class AsteroidsController : MonoBehaviour
     
     private float _delay;
 
+    private bool _active;
+
     public void Init(Camera cam, Asteroids spreadsheet)
     {
         _camera = cam;
         _spreadsheet = spreadsheet;
+
+        _active = true;
     }
 
     private void Update()
     {
+        if (!_active) return;
+
         var now = DateTime.UtcNow;
         var nextDateTime = _lastUpdate.AddSeconds(_delay);
 

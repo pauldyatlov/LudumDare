@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.941
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 96352358}
-  m_IndirectSpecularColor: {r: 0.021494947, g: 0.010571458, b: 0.038054988, a: 0.941}
+  m_IndirectSpecularColor: {r: 0.02148522, g: 0.010473945, b: 0.037739746, a: 0.941}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 586444761}
+  m_TargetTexture: {fileID: 1122430913}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -436,30 +436,6 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 1491236261932672, guid: c4ccee7e4ba01a14d87fa95237217950, type: 2}
   - {fileID: 1060097291068896, guid: 3bac694c311b17c4fb58d367f212e711, type: 2}
---- !u!84 &586444761
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 1074
-  m_Height: 605
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_TextureSettings:
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapMode: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!43 &622285077
 Mesh:
   m_ObjectHideFlags: 0
@@ -712,7 +688,7 @@ Prefab:
     - target: {fileID: 224535952467554556, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 224535952467554556, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -722,7 +698,7 @@ Prefab:
     - target: {fileID: 224535952467554556, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 224678575503661872, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -742,7 +718,7 @@ Prefab:
     - target: {fileID: 224678575503661872, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -178
       objectReference: {fileID: 0}
     - target: {fileID: 224678575503661872, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -752,7 +728,7 @@ Prefab:
     - target: {fileID: 224678575503661872, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 224503211490834448, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -772,7 +748,7 @@ Prefab:
     - target: {fileID: 224503211490834448, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -286
       objectReference: {fileID: 0}
     - target: {fileID: 224503211490834448, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -782,7 +758,7 @@ Prefab:
     - target: {fileID: 224503211490834448, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 224157381855229942, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -802,7 +778,7 @@ Prefab:
     - target: {fileID: 224157381855229942, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -394
       objectReference: {fileID: 0}
     - target: {fileID: 224157381855229942, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -812,7 +788,7 @@ Prefab:
     - target: {fileID: 224157381855229942, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 224533963864127716, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -832,7 +808,7 @@ Prefab:
     - target: {fileID: 224533963864127716, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -502
       objectReference: {fileID: 0}
     - target: {fileID: 224533963864127716, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
@@ -842,56 +818,21 @@ Prefab:
     - target: {fileID: 224533963864127716, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
-    - target: {fileID: 114847731144938692, guid: 736430bccf7c4bd46a09ef8ada7121eb,
+    - target: {fileID: 224466223830894872, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
+      propertyPath: m_SizeDelta.x
+      value: 917.1134
       objectReference: {fileID: 0}
-    - target: {fileID: 114278747163111920, guid: 736430bccf7c4bd46a09ef8ada7121eb,
+    - target: {fileID: 224466223830894872, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
+      propertyPath: m_SizeDelta.y
+      value: 43.98625
       objectReference: {fileID: 0}
-    - target: {fileID: 114229054577887444, guid: 736430bccf7c4bd46a09ef8ada7121eb,
+    - target: {fileID: 114012628851007756, guid: 736430bccf7c4bd46a09ef8ada7121eb,
         type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114339637703287998, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114945731450222222, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114420765815610324, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114645171752123246, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114413903321805412, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114816277134925738, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114455299692621582, guid: 736430bccf7c4bd46a09ef8ada7121eb,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -902,12 +843,42 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224195645877823158, guid: 736430bccf7c4bd46a09ef8ada7121eb,
     type: 2}
   m_PrefabInternal: {fileID: 637278114}
+--- !u!84 &1122430913
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 873
+  m_Height: 540
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_TextureSettings:
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapMode: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!114 &1122901962 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114248998197098112, guid: 35ac8188aad7a4f4dacee1ece9bcde04,
     type: 2}
   m_PrefabInternal: {fileID: 121868313}
   m_Script: {fileID: 11500000, guid: d999f5258f4dd6445b99680f6933e1f9, type: 3}
+--- !u!114 &1159445936 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114012628851007756, guid: 736430bccf7c4bd46a09ef8ada7121eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 637278114}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1500244601
 Prefab:
   m_ObjectHideFlags: 0
@@ -1118,6 +1089,7 @@ MonoBehaviour:
   _gameplayData: {fileID: 11400000, guid: 2b4460af1d132db4b8a63b78bb0849bd, type: 2}
   _uiController: {fileID: 1545360940}
   _uiCamera: {fileID: 2072452894}
+  _startScreen: {fileID: 1159445936}
 --- !u!4 &1860641329
 Transform:
   m_ObjectHideFlags: 0

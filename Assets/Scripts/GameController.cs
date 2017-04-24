@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -14,13 +15,36 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private UIController _uiController;
     [SerializeField] private UICamera _uiCamera;
-    
+
+    [SerializeField] private Image _startScreen;
+
     private DateTime _lastUpdate;
 
     private const int CALL_DELAY = 5;
 
+    public static bool GameStarted = false;
+
     private void Awake()
     {
+        _startScreen.gameObject.SetActive(true);
+        ParametersCounter.ActiveTime = false;
+        Time.timeScale = 0;
+    }
+
+    private void DamageDealtHandler(int health)
+    {
+        _scenariosController.ChangeParameter(EAffectionType.Oxygen, health, ParametersCounter.StartOxygen, 1);
+
+        if (health <= 0)
+        {
+            Debug.LogWarning("<b>Game over!</b>");
+        }
+    }
+
+    private void StartGame()
+    {
+        GameStarted = true;
+
         ParametersCounter.Init();
 
         ParametersCounter.StartMilitary = _gameplayData.dataArray.FirstOrDefault(x => x.KEY == "StartMilitary").AMOUNT;
@@ -39,27 +63,16 @@ public class GameController : MonoBehaviour
         _uiCamera.Init(_astronaut);
 
         ParametersCounter.ActiveTime = true;
-    }
+        Time.timeScale = 1;
 
-    private void DamageDealtHandler(int health)
-    {
-        _scenariosController.ChangeParameter(EAffectionType.Oxygen, health, ParametersCounter.StartOxygen, 1);
-
-        if (health <= 0)
-        {
-            Debug.LogWarning("<b>Game over!</b>");
-        }
+        _startScreen.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (!GameStarted && Input.GetKeyDown(KeyCode.Space))
         {
-            _scenariosController.ChangeParameter(EAffectionType.Farming, ParametersCounter.GetValue(EAffectionType.Farming).CurrentCount + 5, ParametersCounter.GetPopulationSum(), 1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            _scenariosController.ChangeParameter(EAffectionType.Military, ParametersCounter.GetValue(EAffectionType.Military).CurrentCount - 1, ParametersCounter.GetPopulationSum(), 1);
+            StartGame();
         }
 
         if (!ParametersCounter.ActiveTime) return;

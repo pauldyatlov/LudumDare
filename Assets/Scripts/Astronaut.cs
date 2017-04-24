@@ -77,11 +77,6 @@ public class Astronaut : MonoBehaviour
     {
         CurrentRotationSpeed = Vector3.MoveTowards(CurrentRotationSpeed, Vector3.zero, 0.01f);
         transform.Rotate(CurrentRotationSpeed, Space.World);
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Health -= 5;
-        }
     }
 
     private void OnValueChanged(EAffectionType type, AffectionParameters parameters)
