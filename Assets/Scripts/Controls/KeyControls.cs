@@ -15,6 +15,6 @@ public class KeyControls : MonoBehaviour
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
         if (Mathf.Abs(vertical) > 0.2 || Mathf.Abs(horizontal) > 0.2)
-            _astronaut.Rotate(new Vector2(vertical, horizontal) * _speed);
+            _astronaut.Rotate(Camera.main.transform.rotation * new Vector2(vertical, horizontal) * _speed);
     }
 }

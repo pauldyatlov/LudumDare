@@ -13,6 +13,6 @@ public class MouseControls : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButton(0))
-            _astronaut.Rotate(new Vector2(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X")) * _speed);
+            _astronaut.Rotate(Camera.main.transform.rotation * new Vector2(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X")) * _speed);
     }
 }
