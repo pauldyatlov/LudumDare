@@ -26,7 +26,7 @@ public class SpawnArea : MonoBehaviour
     {
         Astronaut = GetComponentInParent<Astronaut>();
         _astronautCollider = Astronaut.GetComponent<Collider>();
-        _houseSpiral = DrawSpiral(5, Radius, 0.005f).ToArray();
+        _houseSpiral = DrawSpiral(5, Radius, 0.01f).ToArray();
     }
 
     private Vector2[] _houseSpiral;

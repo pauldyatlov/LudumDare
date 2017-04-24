@@ -48,6 +48,7 @@ ModelImporter:
     100080: right_leg01
     100082: right_leg02
     100084: right_leg03
+    100086: helper
     400000: body
     400002: left_hand00
     400004: left_hand01
@@ -91,6 +92,7 @@ ModelImporter:
     400080: right_leg01
     400082: right_leg02
     400084: right_leg03
+    400086: helper
     4300000: panda002
     7400000: Take 001
     9500000: //RootNode
