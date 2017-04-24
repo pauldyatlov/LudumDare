@@ -13,6 +13,8 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private ScenarioPanel _scenarioPanel;
 
+    public bool ScenarioActive;
+
     public void Init()
     {
         ParametersCounter.OnValueChanged += SetValue;
@@ -26,7 +28,19 @@ public class UIController : MonoBehaviour
             return;
         }
 
-        _scenarioPanel.Show(scenario, onClick);
+        ScenarioActive = true;
+
+        _scenarioPanel.Show(scenario, (arg1, arg2) =>
+        {
+            onClick(arg1, arg2);
+
+            EndScenario();
+        });
+    }
+
+    private void EndScenario()
+    {
+        ScenarioActive = false;
     }
 
     private void SetValue(EAffectionType type, AffectionParameters parameters)

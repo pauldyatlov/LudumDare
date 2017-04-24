@@ -21,8 +21,12 @@ MonoBehaviour:
     name: KEY
     isEnable: 0
     isArray: 0
-  - type: 5
+  - type: 3
     name: AMOUNT
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: INCOME
     isEnable: 0
     isArray: 0
   AccessCode: 

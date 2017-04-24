@@ -13,6 +13,7 @@ public class ScenarioPanel : MonoBehaviour
     [SerializeField] private Sprite _neutralSprite;
     [SerializeField] private Sprite _disapprovalSprite;
 
+    [SerializeField] private Text _acceptButtonLabel;
     [SerializeField] private Button _acceptButton;
 
     private readonly List<ScenarioButton> _buttons = new List<ScenarioButton>();
@@ -33,9 +34,26 @@ public class ScenarioPanel : MonoBehaviour
 
         _onClick = onClick;
 
-        CreateDecisionButton(EStupidAffectionType.Good, scenario);
-        CreateDecisionButton(EStupidAffectionType.Neutral, scenario);
-        CreateDecisionButton(EStupidAffectionType.Bad, scenario);
+        if (scenario.Gameover)
+        {
+            ShowResultActionDescription(scenario.Description);
+
+            _acceptButtonLabel.text = "END";
+            _acceptButton.onClick.AddListener(() =>
+            {
+                Application.Quit();
+
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            });
+        }
+        else
+        {
+            CreateDecisionButton(EStupidAffectionType.Good, scenario);
+            CreateDecisionButton(EStupidAffectionType.Neutral, scenario);
+            CreateDecisionButton(EStupidAffectionType.Bad, scenario);
+        }
     }
 
     private void CreateDecisionButton(EStupidAffectionType type, EventsData scenario)

@@ -40,6 +40,14 @@ public static class ParametersCounter
     public static Action<EAffectionType, AffectionParameters> OnValueChanged;
     public static bool ActiveTime;
 
+    public static int StartMilitary = 10;
+    public static int StartScience = 10;
+    public static int StartFarming = 10;
+    public static int StartReligion = 10;
+    public static int StartInsurgency = 10;
+    
+    public static int StartOxygen = 100;
+
     public static void Init()
     {
         _variables = new Dictionary<EAffectionType, AffectionParameters>();

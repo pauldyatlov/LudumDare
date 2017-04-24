@@ -63,7 +63,7 @@ public class Astronaut : MonoBehaviour
 
         _onHealthChanged = onHealthChanged;
 
-        Health = 100;
+        Health = ParametersCounter.StartOxygen;
 
         ParametersCounter.OnValueChanged += OnValueChanged;
     }

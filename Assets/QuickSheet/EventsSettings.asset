@@ -69,4 +69,8 @@ MonoBehaviour:
     name: ContraButtonLabel
     isEnable: 0
     isArray: 0
+  - type: 8
+    name: GameOver
+    isEnable: 0
+    isArray: 0
   AccessCode: 

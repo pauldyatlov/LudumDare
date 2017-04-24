@@ -13,7 +13,11 @@ public class GameplayData
   public string KEY { get {return key; } set { key = value;} }
   
   [SerializeField]
-  float amount;
-  public float AMOUNT { get {return amount; } set { amount = value;} }
+  int amount;
+  public int AMOUNT { get {return amount; } set { amount = value;} }
+  
+  [SerializeField]
+  int income;
+  public int INCOME { get {return income; } set { income = value;} }
   
 }

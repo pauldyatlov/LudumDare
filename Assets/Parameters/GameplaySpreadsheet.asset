@@ -14,5 +14,24 @@ MonoBehaviour:
   SheetName: LudumDareSpreadsheet
   WorksheetName: Gameplay
   dataArray:
-  - key: FinishTime
-    amount: 240
+  - key: Tick
+    amount: 5
+    income: 0
+  - key: StartMilitary
+    amount: 10
+    income: 1
+  - key: StartScience
+    amount: 10
+    income: 1
+  - key: StartFarming
+    amount: 10
+    income: 1
+  - key: StartReligion
+    amount: 10
+    income: 1
+  - key: StartInsurgency
+    amount: 10
+    income: 1
+  - key: StartOxygen
+    amount: 1000
+    income: -1

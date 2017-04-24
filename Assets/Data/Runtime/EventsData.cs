@@ -59,5 +59,9 @@ public class EventsData
   [SerializeField]
   string contrabuttonlabel;
   public string Contrabuttonlabel { get {return contrabuttonlabel; } set { contrabuttonlabel = value;} }
-
+  
+  [SerializeField]
+  bool gameover;
+  public bool Gameover { get {return gameover; } set { gameover = value;} }
+  
 }

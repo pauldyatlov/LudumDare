@@ -12,14 +12,18 @@ public class AsteroidObject : MonoBehaviour
     private const float MaxZRotationSpeed = 50;
 
     private Vector3 _rotationVector;
-    private Vector3 _forward;
-    
+    private Vector3 _forwardVector;
+
     private float _speed;
-    
-    public void Show(Vector3 forward, float amount, float speed)
+
+    private void Awake()
+    {
+        _forwardVector = new Vector3(Vector3.left.x, Vector3.left.y, Vector3.left.z);
+    }
+
+    public void Show(float speed)
     {
         _speed = speed;
-        _forward = Vector3.forward;
 
         _rotationVector = new Vector3(UnityEngine.Random.Range(MinXRotationSpeed, MaxXRotationSpeed),
                                       UnityEngine.Random.Range(MinYRotationSpeed, MaxYRotationSpeed),
@@ -30,31 +34,12 @@ public class AsteroidObject : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _forward, Time.deltaTime * _speed);
+        transform.position += _forwardVector * Time.deltaTime * _speed;
         transform.Rotate(_rotationVector * Time.deltaTime);
-
-        //if (Vector3.Distance(transform.position, _forward) < Mathf.Epsilon)
-        //{
-        //   DestroyAsteroid();
-        //}
     }
 
     private void DestroyAsteroid(float time = 0.0f)
     {
         Destroy(gameObject, time);
-    }
-
-    private void OnTriggerEnter(Collider col)
-    {
-        var astronaut = col.GetComponent<Astronaut>();
-
-        if (astronaut != null)
-        {
-            astronaut.Health -= 20;
-
-            Debug.Log("Astronaut hit!");
-
-            DestroyAsteroid();
-        }
     }
 }

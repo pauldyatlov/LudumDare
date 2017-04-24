@@ -4,6 +4,11 @@ public class UICamera : MonoBehaviour
 {
     private Transform _followingTransform;
 
+    public Camera Camera
+    {
+        get { return GetComponent<Camera>(); }
+    }
+
     public void Init(Astronaut astronaut)
     {
         _followingTransform = astronaut.transform;

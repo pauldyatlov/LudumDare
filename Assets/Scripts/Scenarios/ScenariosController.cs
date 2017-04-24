@@ -13,13 +13,19 @@ public class ScenariosController : MonoBehaviour
     {
         _uiController = uiController;
 
-        ParametersCounter.SetValue(EAffectionType.Farming,    10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Military,   10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Insurgency,     10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Religion,  10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Science, 10, 50, 1);
-        ParametersCounter.SetValue(EAffectionType.Oxygen,    100, 100, -1);
-        ParametersCounter.SetValue(EAffectionType.Population, 50, 1000, 1);
+        ParametersCounter.SetValue(EAffectionType.Farming,     ParametersCounter.StartFarming, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Military,    ParametersCounter.StartMilitary, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Insurgency,  ParametersCounter.StartInsurgency, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Religion,    ParametersCounter.StartReligion, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Science,     ParametersCounter.StartScience, 50, 1);
+        ParametersCounter.SetValue(EAffectionType.Oxygen,      ParametersCounter.StartOxygen, ParametersCounter.StartOxygen, -1);
+
+        ParametersCounter.SetValue(EAffectionType.Population,  ParametersCounter.StartFarming
+                                                             + ParametersCounter.StartMilitary 
+                                                             + ParametersCounter.StartInsurgency 
+                                                             + ParametersCounter.StartReligion 
+                                                             + ParametersCounter.StartReligion 
+                                                             + ParametersCounter.StartScience, 1000, 1);
     }
 
     public void ChangeParameter(EAffectionType type, int value, int maxValue, int income, bool displayLog = true)
@@ -34,12 +40,12 @@ public class ScenariosController : MonoBehaviour
 
         foreach (var scenario in _scenarios.dataArray.Where(x => !_passedEvents.Contains(x)))
         {
-            if (scenario.EAFFECTIONTYPE == type && !_passedEvents.Contains(scenario) &&
+            if (scenario.EAFFECTIONTYPE == type && !_passedEvents.Contains(scenario) && !_uiController.ScenarioActive && 
                     (scenario.Breakpoint > 0 
                     ? value >= scenario.Breakpoint 
                     : value <= scenario.Breakpoint))
             {
-                Debug.Log("<color=magenta><b>Scenario.</b></color> Starting scenario with type (" + type + "). Value is ( " + value + "), breakpoint is (" + scenario.Breakpoint + ")");
+                Debug.Log("<color=magenta><b>Scenario.</b></color> Starting scenario with type (" + type + "). Value is (" + value + "), breakpoint is (" + scenario.Breakpoint + ")");
 
                 _uiController.BeginScenario(scenario, OnButtonClick);
 
