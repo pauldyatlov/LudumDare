@@ -33,5 +33,5 @@ MonoBehaviour:
     amount: 10
     income: 1
   - key: StartOxygen
-    amount: 1000
+    amount: 1500
     income: -1
