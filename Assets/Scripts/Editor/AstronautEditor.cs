@@ -26,7 +26,7 @@ public class AstronautEditor : Editor
             Handles.color = color;
         }
 
-        var collider = astronaut.GetComponent<MeshCollider>();
+        var collider = astronaut.PandaCollider;
         if (collider == null)
             return;
 

@@ -14,6 +14,7 @@ public class Astronaut : MonoBehaviour
     public AnimationCurve PopulationVisualCurve;
 
     public SkinnedMeshRenderer Skin;
+    public MeshCollider PandaCollider;
 
     private int _health;
     public int Health
@@ -43,7 +44,7 @@ public class Astronaut : MonoBehaviour
     public void RebakeMesh()
     {
         Skin.BakeMesh(Mesh);
-        GetComponent<MeshCollider>().sharedMesh = Mesh;
+        PandaCollider.sharedMesh = Mesh;
     }
 
     private void OnValidate()
